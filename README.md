@@ -56,6 +56,7 @@
             font-family: 'Playfair Display', serif;
         }
         header h2 {
+            /* Updated wording for H2 */
             font-size: 1.2em;
             color: var(--secondary-color);
             margin: 0 0 20px 0;
@@ -221,6 +222,10 @@
         #filter-freelance:checked ~ .project-list .freelance {
             display: block;
         }
+        /* NEW FILTER LOGIC */
+        #filter-development:checked ~ .project-list .development {
+            display: block;
+        }
 
         /* FOOTER */
         footer {
@@ -256,11 +261,10 @@
     <div class="container">
         <header>
             <h1>Jordan Dudgeon</h1>
-            <h2>Creative Web Developer / Business Systems Analyst</h2>
+            <h2>Bridging Design, Development, and Process Optimization</h2>
             
             <p class="profile-summary">
-                Dedicated to building polished, user-friendly interfaces with clean code and
-                applying technical expertise to drive process optimization and system integration.
+                I build intuitive, performant interfaces and use technical analysis to **engineer better business workflows.**
             </p>
             
             <div class="button-group">
@@ -278,19 +282,22 @@
             <label for="filter-all" class="skill-tag">All Projects</label>
 
             <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
-            <label for="filter-webdev" class="skill-tag">HTML/CSS/JS</label>
+            <label for="filter-webdev" class="skill-tag">Full-Stack UI/UX</label>
 
             <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
-            <label for="filter-analysis" class="skill-tag">Business Analysis</label>
+            <label for="filter-analysis" class="skill-tag">Process Mapping & Analysis</label>
 
             <input type="radio" id="filter-integration" name="skill-filter" class="skill-filter-input">
-            <label for="filter-integration" class="skill-tag">System Integration</label>
+            <label for="filter-integration" class="skill-tag">System & Data Integration</label>
             
             <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
-            <label for="filter-design" class="skill-tag">Design Systems</label>
+            <label for="filter-design" class="skill-tag">Scalable Design Systems</label>
             
             <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
-            <label for="filter-freelance" class="skill-tag">Freelance</label>
+            <label for="filter-freelance" class="skill-tag">Client Solutions</label>
+            
+            <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
+            <label for="filter-development" class="skill-tag">In Development</label>
             
             <div class="project-list" style="margin-top: 20px;">
                 
@@ -303,8 +310,7 @@
                         <span class="project-tag">Design Systems</span>
                     </div>
                     <p>
-                        A demonstration of front-end capabilities, featuring a fully responsive layout, advanced
-                        CSS transitions, and multiple aesthetic themes managed by vanilla JavaScript.
+                        Demonstrating mastery of clean CSS, this portfolio features **CSS-only filtering** and **thematic design systems** for immediate, low-latency UX.
                     </p>
                     <div class="project-links">
                         <a href="https://jdudgeon1993.github.io/jdudgeon1993/" target="_blank" rel="noopener">View Live</a>
@@ -320,8 +326,7 @@
                         <span class="project-tag">Workflow Design</span>
                     </div>
                     <p>
-                        Executed a comprehensive analysis for internal stakeholders, providing actionable recommendations
-                        on system integration and resource allocation to drive operational improvements.
+                        Comprehensive business analysis that delivered **actionable system integration** and resource recommendations, **reducing cross-departmental friction.**
                     </p>
                     <div class="project-links">
                         <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" target="_blank" rel="noopener">View Report</a>
@@ -336,28 +341,91 @@
                         <span class="project-tag">Freelance</span>
                     </div>
                     <p>
-                        Designed and built a simplified business card website for a client specializing in CAD design,
-                        focusing on speed and direct contact conversion.
+                        Delivered a high-speed, minimalist website optimized for a **CAD design client**, ensuring **maximum conversion** and lead capture efficiency.
                     </p>
                     <div class="project-links">
                         <a href="https://liveweave.com/6v2Mx2" target="_blank" rel="noopener">View Demo</a>
                     </div>
                 </div>
-            </div>
 
-        </section>
-
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Jordan Dudgeon | All Rights Reserved.</p>
-            <div class="footer-links">
-                <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="mailto:jdudgeon1993@gmail.com">jdudgeon1993@gmail.com</a>
-            </div>
-        </div>
-    </footer>
-    
-</body>
-</html>
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 1)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 2)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 3)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 4)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 5)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 6)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 7)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 8)</h4>
+                    <div class="project-tags-list">
+                        <span class
