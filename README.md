@@ -428,4 +428,161 @@
                 <div class="project-item development">
                     <h4>TBD for each new one (Project 8)</h4>
                     <div class="project-tags-list">
-                        <span class
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 9)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 10)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 11)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 12)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 13)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 14)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 15)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 16)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 17)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 18)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 19)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+                <div class="project-item development">
+                    <h4>TBD for each new one (Project 20)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>In Development</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Jordan Dudgeon | All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="mailto:jdudgeon1993@gmail.com">jdudgeon1993@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
