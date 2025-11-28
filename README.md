@@ -56,7 +56,6 @@
             font-family: 'Playfair Display', serif;
         }
         header h2 {
-            /* Updated wording for H2 */
             font-size: 1.2em;
             color: var(--secondary-color);
             margin: 0 0 20px 0;
@@ -201,8 +200,8 @@
 
         /* 5. CSS FILTER MAGIC (using the general sibling selector ~) */
         
-        /* Show ALL projects when the 'All' radio button is checked */
-        #filter-all:checked ~ .project-list .project-item {
+        /* Show ONLY COMPLETED projects (everything *except* .development) when 'Completed Work' is checked (the default view) */
+        #filter-all:checked ~ .project-list .project-item:not(.development) {
             display: block;
         }
 
@@ -222,7 +221,7 @@
         #filter-freelance:checked ~ .project-list .freelance {
             display: block;
         }
-        /* NEW FILTER LOGIC */
+        /* Show ONLY development projects when 'In Development' is checked */
         #filter-development:checked ~ .project-list .development {
             display: block;
         }
@@ -279,9 +278,7 @@
             <h3>Projects & Index</h3>
 
             <input type="radio" id="filter-all" name="skill-filter" class="skill-filter-input" checked>
-            <label for="filter-all" class="skill-tag">All Projects</label>
-
-            <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
+            <label for="filter-all" class="skill-tag">Completed Work</label> <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
             <label for="filter-webdev" class="skill-tag">Full-Stack UI/UX</label>
 
             <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
