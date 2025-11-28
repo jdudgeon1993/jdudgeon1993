@@ -12,7 +12,6 @@
         /* THEME DEFINITIONS (CSS VARIABLES)  */
         /* ---------------------------------- */
 
-        /* Fallback/Default Style */
         :root {
             --font-family-title: 'Playfair Display', serif;
             --font-family-body: 'Georgia', 'Times New Roman', serif;
@@ -31,6 +30,7 @@
             --button-hover-bg: #3a4b56;
             --tag-bg: #f0f0f0;
             --tag-color: var(--secondary-color);
+            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
         }
 
         /* 2. DEEP SEA CODER (DARK/COOL) */
@@ -45,6 +45,7 @@
             --button-hover-bg: #00897b;
             --tag-bg: #37474f;
             --tag-color: #e0f7fa;
+            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
         }
 
         /* 3. MIDNIGHT CRIMSON (DARK/WARM) */
@@ -59,6 +60,7 @@
             --button-hover-bg: #d32f2f;
             --tag-bg: #420a0a;
             --tag-color: #fce4ec;
+            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
         }
 
         /* ---------------------------------- */
@@ -82,20 +84,21 @@
         }
 
         /* ---------------------------------- */
-        /* HEADER / PROFILE */
+        /* HEADER / PROFILE (TYPOGRAPHY ENHANCEMENT) */
         /* ---------------------------------- */
         header {
             padding: 30px 0;
             margin-bottom: 30px;
             text-align: center;
             border-bottom: 2px solid var(--accent-color);
-            position: relative; /* For the theme switcher positioning */
+            position: relative;
         }
         header h1 {
             font-size: 3em;
             color: var(--accent-color);
             margin: 0 0 5px 0;
-            text-transform: capitalize;
+            text-transform: uppercase; /* Use small-caps variant */
+            letter-spacing: 0.1em; /* Added for a classic look */
             font-family: var(--font-family-title);
         }
         header h2 {
@@ -103,6 +106,8 @@
             color: var(--secondary-color);
             margin: 0 0 20px 0;
             font-weight: 400;
+            font-variant: small-caps; /* Refined look */
+            letter-spacing: 0.1em; /* Added for a classic look */
         }
         .profile-summary {
             max-width: 600px;
@@ -132,7 +137,7 @@
         }
 
         /* ---------------------------------- */
-        /* BUTTONS & LINKS */
+        /* BUTTONS & LINKS (MICRO-INTERACTION)*/
         /* ---------------------------------- */
         a {
             color: var(--accent-color);
@@ -158,12 +163,25 @@
             border: none; 
             cursor: pointer;
             box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Added polish */
             transition: background 0.2s, box-shadow 0.1s, transform 0.1s;
         }
         .action-button:hover {
             background: var(--button-hover-bg);
             box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
             transform: translateY(1px);
+        }
+        .action-button:focus {
+             outline: 3px solid var(--accent-color); /* A11Y improvement */
+             outline-offset: 2px;
+        }
+        
+        /* ORNAMENTAL DIVIDER */
+        .ornamental-divider {
+            height: 1px;
+            background: var(--ornamental-line);
+            margin: 30px 0;
+            border: none;
         }
 
         /* ---------------------------------- */
@@ -204,7 +222,7 @@
             display: inline-block;
             margin-right: 8px;
             margin-bottom: 8px;
-            transition: background 0.2s, color 0.2s;
+            transition: background 0.2s, color 0.2s, transform 0.1s;
         }
 
         /* 3. Style the active (checked) label */
@@ -212,6 +230,11 @@
             background: var(--accent-color);
             color: white;
             border-color: var(--accent-color);
+        }
+        /* Project Tag Hover Enhancement */
+        .project-tag:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
         }
 
         /* PROJECT LIST STYLES */
@@ -227,12 +250,13 @@
             padding-bottom: 0;
         }
         .project-list .project-item:hover {
-            background-color: color-mix(in srgb, var(--card-bg) 95%, var(--accent-color)); /* Subtle hover based on card/accent */
+            background-color: color-mix(in srgb, var(--card-bg) 95%, var(--accent-color));
             border-left: 5px solid var(--accent-color);
             padding-left: 25px;
         }
         .project-list .project-item h4 {
-            font-size: 1.3em;
+            font-size: 1.35em; /* Slightly increased size */
+            font-weight: 700; /* Ensured bold title */
             color: var(--accent-color);
             margin: 0 0 5px 0;
             font-family: var(--font-family-title);
@@ -342,7 +366,7 @@
             </div>
         </header>
 
-        <hr style="border: 0; height: 1px; background: var(--border-color); margin: 30px 0;">
+        <div class="ornamental-divider"></div>
 
         <section id="projects">
             <h3>Projects & Index</h3>
