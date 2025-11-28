@@ -461,7 +461,7 @@
       <div class="divider"></div>
       <div class="info">
         <h1>Jordan Dudgeon</h1>
-        <h2>Business Systems & Customer Success Specialist</h2>
+        <h2>Creative Web Developer</h2>
         <p>Creative web developer specializing in responsive layouts, thematic design systems, and atmospheric transitions. Dedicated to building polished, user-friendly interfaces with vanilla HTML, CSS, and JavaScript.</p>
 
         <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" aria-label="Connect with me on LinkedIn">LinkedIn</a>
