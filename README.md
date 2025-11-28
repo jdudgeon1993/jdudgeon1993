@@ -462,7 +462,7 @@
       <div class="info">
         <h1>Jordan Dudgeon</h1>
         <h2>Business Systems & Customer Success Specialist</h2>
-        <p>Experienced customer service and inventory specialist with a background in logistics, sales, and software support. Passionate about teamwork, adaptability, and continuous growth in dynamic environments. **Ready for my next role at Intrepid Potash.**</p>
+        <p>Creative web developer specializing in responsive layouts, thematic design systems, and atmospheric transitions. Dedicated to building polished, user-friendly interfaces with vanilla HTML, CSS, and JavaScript.</p>
 
         <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" aria-label="Connect with me on LinkedIn">LinkedIn</a>
         <button onclick="toggleSection('projects')" aria-expanded="false" aria-controls="projects">Projects</button>
@@ -492,7 +492,7 @@
     <div class="modal-content" onclick="event.stopPropagation()">
       <button class="modal-close-btn" onclick="closeModal('contactModal')" aria-label="Close Contact Window">&times;</button>
       <h2>Contact Me</h2>
-      <p>I am currently transitioning to a new role but welcome professional inquiries. You can reach me directly at:</p>
+      <p>Currently open to work in front-end development and design. Get in touch to discuss projects or roles.</p>
       <p><strong>Email:</strong> jdudgeon1993@gmail.com</p>
       <p><strong>Phone:</strong> 720.220.9553</p>
       <div class="modal-contact-row">
@@ -534,8 +534,8 @@
     const projectsData = [
         { 
             title: "Dynamic Themed Portfolio", 
-            description: "Designed and developed a responsive, single-page professional portfolio using vanilla HTML, CSS, and JavaScript. Key features include a floating 'business card' layout, three distinct CSS-driven aesthetic themes (Bookish, Dungeon, Seasonal), and smooth content transitions, showcasing proficiency in front-end development and thematic design.",
-            link: "https://github.com/jdudgeon1993/Projects.git", 
+            description: "Developed a single-page professional portfolio using vanilla HTML, CSS, and JavaScript. The design features a floating “business card” layout and incorporates three distinct CSS-driven themes—Bookish, Dungeon, and Seasonal—to highlight versatility in aesthetic styling. Smooth content transitions enhance user experience, demonstrating strong front-end development skills and a focus on thematic, responsive design.",
+            link: "https://jdudgeon1993.github.io/jdudgeon1993/", 
             mediaUrl: "https://via.placeholder.com/600x400/8b5e3c/ffffff?text=Portfolio+Live+View" 
         },
         { 
