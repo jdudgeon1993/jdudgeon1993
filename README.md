@@ -527,16 +527,19 @@
     </div>
   </footer>
 
-  <script>
+<script>
     // ----------------------------------
-    // PROJECT DATA ARRAY (All three projects finalized)
+    // PROJECT DATA ARRAY (Updated Project 1 Link for "Live View")
     // ----------------------------------
     const projectsData = [
         { 
             title: "Dynamic Themed Portfolio", 
-            description: "Developed a single-page professional portfolio using vanilla HTML, CSS, and JavaScript. The design features a floating “business card” layout and incorporates three distinct CSS-driven themes—Bookish, Dungeon, and Seasonal—to highlight versatility in aesthetic styling. Smooth content transitions enhance user experience, demonstrating strong front-end development skills and a focus on thematic, responsive design.",
+            description: "Designed and developed a responsive, single-page professional portfolio using vanilla HTML, CSS, and JavaScript. Key features include a floating 'business card' layout, three distinct CSS-driven aesthetic themes (Bookish, Dungeon, Seasonal), and smooth content transitions, showcasing proficiency in front-end development and thematic design.",
+            // UPDATED LINK: Points to the live site, serving as the "Live View"
             link: "https://jdudgeon1993.github.io/jdudgeon1993/", 
-            mediaUrl: "https://via.placeholder.com/600x400/8b5e3c/ffffff?text=Portfolio+Live+View" 
+            mediaUrl: "https://via.placeholder.com/600x400/8b5e3c/ffffff?text=Portfolio+Live+View",
+            // NEW PROPERTY: Sets the custom button text
+            buttonLabel: "View Live Site"
         },
         { 
             title: "Inter-Departmental Project Analysis", 
@@ -628,7 +631,7 @@
     }
 
     // ----------------------------------
-    // PROJECT GALLERY MODAL FUNCTIONS (Updated with Media and Fade Logic)
+    // PROJECT GALLERY MODAL FUNCTIONS
     // ----------------------------------
     
     function renderProject(index) {
@@ -657,7 +660,10 @@
             const linkElement = document.getElementById('project-link');
             linkElement.href = project.link;
 
-            if (project.link.toLowerCase().includes("code") || project.link.toLowerCase().includes("github")) {
+            // NEW LOGIC: Use a custom label if defined, otherwise use default logic
+            if (project.buttonLabel) {
+                linkElement.textContent = project.buttonLabel;
+            } else if (project.link.toLowerCase().includes("code") || project.link.toLowerCase().includes("github")) {
                 linkElement.textContent = "View Code";
             } else if (project.link.toLowerCase().includes("document") || project.link.toLowerCase().includes("dropbox")) {
                 linkElement.textContent = "View Document";
@@ -714,7 +720,7 @@
     }
 
     // ----------------------------------
-    // A11Y: Keyboard Event Listener (NEW!)
+    // A11Y: Keyboard Event Listener
     // ----------------------------------
     document.addEventListener('keydown', function(event) {
         const projectModal = document.getElementById('projectModal');
