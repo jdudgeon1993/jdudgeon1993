@@ -455,7 +455,7 @@
   <main>
     <div class="card">
       <div class="profile-pic">
-        <img src="https://via.placeholder.com/120/8b5e3c/ffffff?text=JD" alt="Jordan Dudgeon Profile Picture" />
+        <img src="[https://via.placeholder.com/120/8b5e3c/ffffff?text=JD](https://media.licdn.com/dms/image/v2/D5603AQGLMLr9wZ1MDA/profile-displayphoto-crop_800_800/B56ZfH.oFBHoAM-/0/1751406772949?e=1766016000&v=beta&t=NyBNEaZtoVxFWjbgDhtwsDlmfDkXULkgsSQHdZPx3io)" alt="Jordan Dudgeon Profile Picture" />
       </div>
       <div class="divider"></div>
       <div class="info">
