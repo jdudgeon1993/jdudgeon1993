@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jordan Dudgeon: Designing seamless user experiences, transforming complex technical challenges into simple, efficient solutions for both users and business operations.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -470,7 +472,7 @@
     </style>
 </head>
 <body data-theme="journal">
-    <div class="container">
+    <main class="container"> 
         <header>
             <div class="theme-switcher-container">
                 <label for="theme-switcher">Theme:</label>
@@ -603,9 +605,7 @@
 
         </section>
 
-    </div>
-
-    <footer>
+    </main> <footer>
         <div class="footer-content">
             <p>&copy; 2025 Jordan Dudgeon | All Rights Reserved.</p>
             <div class="footer-links">
