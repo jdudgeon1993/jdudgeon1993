@@ -226,11 +226,45 @@
         }
 
         /* 3. Style the active (checked) label */
-        .skill-filter-input:checked + .skill-tag {
+        /* Note: Labels are now inside .filter-tags-container */
+        .skill-filter-input:checked + .filter-tags-container .skill-tag:has(+.skill-filter-input:checked) {
             background: var(--accent-color);
             color: white;
             border-color: var(--accent-color);
         }
+        /* Fix to target active label more directly */
+        .skill-filter-input:checked + .skill-tag, 
+        .skill-filter-input + .filter-tags-container .skill-filter-input:checked ~ .skill-tag {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        /* Specific fix for the active tag styling */
+        .skill-filter-input:checked + .filter-tags-container .skill-tag:has(input:checked) {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        /* Use direct input selector and sibling combinator for the label within the container */
+        .skill-filter-input:checked + .filter-tags-container > label[for^='filter'] {
+            background: var(--tag-bg); /* Reset non-selected tags */
+            color: var(--tag-color);
+            border-color: var(--border-color);
+        }
+        /* This is the reliable selector for the active tag (since the inputs are now before the container) */
+        .skill-filter-input:checked + .filter-tags-container > label[for='filter-all'],
+        #filter-webdev:checked ~ .filter-tags-container > label[for='filter-webdev'],
+        #filter-analysis:checked ~ .filter-tags-container > label[for='filter-analysis'],
+        #filter-integration:checked ~ .filter-tags-container > label[for='filter-integration'],
+        #filter-design:checked ~ .filter-tags-container > label[for='filter-design'],
+        #filter-freelance:checked ~ .filter-tags-container > label[for='filter-freelance'],
+        #filter-development:checked ~ .filter-tags-container > label[for='filter-development'] {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+
         .project-tag:hover {
             opacity: 0.8;
             transform: scale(1.05);
@@ -238,16 +272,10 @@
 
         /* PROJECT LIST STYLES */
         .project-list .project-item {
-            display: none; 
+            display: none; /* All hidden initially */
             border-bottom: 1px dashed var(--border-color);
             padding: 20px 0;
             transition: background-color 0.2s, border-left 0.2s, padding-left 0.2s;
-        }
-        
-        /* Fix: Ensures all items show by default when 'filter-all' is checked */
-        .project-list .project-item:not(.development),
-        #filter-all:checked ~ .project-list .project-item {
-            display: block;
         }
 
         .project-list .project-item:last-child {
@@ -288,8 +316,10 @@
             margin-right: 15px;
         }
 
-        /* CSS FILTER MAGIC */
-        /* Filter-all now handled above to ensure default visibility */
+        /* CSS FILTER MAGIC: The inputs are now siblings of the project-list! */
+        #filter-all:checked ~ .project-list .project-item {
+            display: block;
+        }
         #filter-webdev:checked ~ .project-list .webdev {
             display: block;
         }
@@ -395,26 +425,22 @@
         <section id="projects">
             <h3>Projects & Index</h3>
 
+            <input type="radio" id="filter-all" name="skill-filter" class="skill-filter-input" checked>
+            <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-integration" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
+
+
             <div class="filter-tags-container">
-                <input type="radio" id="filter-all" name="skill-filter" class="skill-filter-input" checked>
                 <label for="filter-all" class="skill-tag">Completed Work</label>
-
-                <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
                 <label for="filter-webdev" class="skill-tag">Full-Stack UI/UX</label>
-
-                <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
                 <label for="filter-analysis" class="skill-tag">Process Mapping & Analysis</label>
-
-                <input type="radio" id="filter-integration" name="skill-filter" class="skill-filter-input">
                 <label for="filter-integration" class="skill-tag">System & Data Integration</label>
-                
-                <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
                 <label for="filter-design" class="skill-tag">Scalable Design Systems</label>
-                
-                <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
                 <label for="filter-freelance" class="skill-tag">Client Solutions</label>
-                
-                <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
                 <label for="filter-development" class="skill-tag">In Development</label>
             </div>
             
