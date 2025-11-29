@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Jordan Dudgeon – Portfolio</title>
     <style>
-        /* [CSS Styles remain unchanged] */
+        /* [CSS Variables remain unchanged] */
         :root {
             --font-family-title: 'Playfair Display', serif;
             --font-family-body: 'Georgia', 'Times New Roman', serif;
@@ -63,7 +63,7 @@
         }
 
         /* ---------------------------------- */
-        /* BASE STYLES (USE CSS VARIABLES)    */
+        /* BASE STYLES */
         /* ---------------------------------- */
         body {
             margin: 0;
@@ -81,36 +81,95 @@
             margin: 0 auto;
             padding: 40px 0;
         }
-
+        
         /* ---------------------------------- */
-        /* LIGHTHOUSE BADGES (New Position & Spacing)    */
+        /* FLOATING METRICS SYSTEM */
         /* ---------------------------------- */
-        .lighthouse-badges {
-            margin: 0 auto 10px; /* Reduced top margin, added space below for separation */
-            padding-top: 10px; /* Added internal top padding */
+        .floating-metrics-container {
+            position: fixed;
+            bottom: 100px; /* Positions it above the fixed footer */
+            right: 20px;
+            z-index: 99; 
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            align-items: flex-end; /* Align items to the bottom */
+        }
+        
+        /* 1. Hide the checkbox input */
+        #show-metrics-toggle {
+            display: none;
+        }
+        
+        /* 2. Floating Button Style (The clickable label) */
+        .metrics-toggle-link.floating-button {
+            cursor: pointer;
+            padding: 10px 10px; /* UPDATED */
+            border-radius: 4px;
+            background: var(--accent-color);
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background 0.2s, transform 0.2s;
+            line-height: .5; /* UPDATED */
+            z-index: 100; /* Ensure button is always above badges */
+        }
+        .metrics-toggle-link.floating-button:hover {
+            background: var(--button-hover-bg);
+            transform: scale(1.05);
+        }
+        /* Default text for the floating button */
+        .metrics-toggle-link.floating-button::after {
+            content: "📊 METRICS";
+        }
+        /* Text when checked */
+        #show-metrics-toggle:checked ~ .metrics-toggle-link.floating-button::after {
+            content: "❌ CLOSE";
         }
 
-        .badge {
-            padding: 8px 12px;
+        /* 3. LIGHTHOUSE BADGES (Hidden by Default) */
+        .lighthouse-badges {
+            display: none; /* KEY: Hidden by default */
+            position: absolute;
+            right: 0; /* Align right edge of badge box with right edge of button */
+            bottom: calc(100% + 10px); /* KEY: Position above the button + 10px spacing */
+            
+            padding: 10px;
+            background-color: var(--card-bg); 
+            border: 1px solid var(--border-color);
             border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            
+            /* Styles for when it is visible */
+            flex-direction: column; /* Stack badges vertically for a clean block */
+            align-items: flex-end; /* Align badges to the right within the box */
+        }
+
+        /* 4. KEY: Reveal the badges when the checkbox is checked */
+        #show-metrics-toggle:checked ~ .lighthouse-badges {
+            display: flex; 
+        }
+
+        /* Badge component styling */
+        .badge {
+            padding: 5px 10px; 
+            border-radius: 2px;
             font-weight: 700;
-            font-size: 0.9em;
+            font-size: 0.8em; 
             color: white; 
             box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            margin: 4px 0; /* Vertical spacing between stacked badges */
+            white-space: nowrap; /* Prevent badges from wrapping */
         }
 
-        /* Score-specific colors for high visibility */
-        .performance { background-color: #00c853; /* Green for 100 */ }
-        .accessibility { background-color: #00c853; /* Green for 100 */ }
-        .best-practices { background-color: #00c853; /* Green for 100 */ }
-        .seo { background-color: #ffab00; /* Amber for 91 */ }
-
+        /* Score-specific colors */
+        .performance { background-color: #00c853; }
+        .accessibility { background-color: #00c853; }
+        .best-practices { background-color: #00c853; }
+        .seo { background-color: #ffab00; }
+        
         /* ---------------------------------- */
-        /* HEADER / PROFILE */
+        /* HEADER / PROFILE (Unchanged) */
         /* ---------------------------------- */
         header {
             padding: 30px 0;
@@ -163,7 +222,125 @@
         }
 
         /* ---------------------------------- */
-        /* BUTTONS & LINKS */
+        /* FOOTER (Unchanged, just cleaner) */
+        /* ---------------------------------- */
+        footer {
+            width: 100%;
+            background: var(--card-bg);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 5px 0 0 0; 
+            font-size: 0.8em;
+            border-top: 2px solid var(--border-color);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .footer-content {
+             padding: 5px 0 10px 0; 
+        }
+        .footer-links a {
+            margin: 0 10px;
+        }
+
+        /* ---------------------------------- */
+        /* MOBILE ENHANCEMENTS */
+        /* ---------------------------------- */
+        @media (max-width: 600px) {
+            
+            /* Footer scrolls on mobile only */
+            footer {
+                position: static; 
+                padding: 10px 0; 
+            }
+            .footer-content {
+                padding: 5px 0;
+            }
+            body {
+                padding-bottom: 20px; 
+            }
+            
+            /* Mobile positioning for floating button */
+            .floating-metrics-container {
+                bottom: 20px;
+                right: 10px;
+            }
+            
+            /* Mobile badge appearance */
+            .lighthouse-badges {
+                /* Align the center of the badge box with the center of the button */
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: calc(100% + 10px); 
+                
+                width: auto; 
+                min-width: 150px;
+                flex-direction: column; /* Keep stacked vertically */
+                align-items: center; /* Center badges within the floating box on mobile */
+            }
+            .badge {
+                font-size: 0.65em;
+                margin: 3px 0;
+            }
+            
+            header h1 { font-size: 2.5em; }
+            header h2 { font-size: 1em; }
+            .action-button {
+                display: block;
+                width: 90%;
+                margin: 10px auto;
+            }
+            .theme-switcher-container {
+                position: static;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            /* Workflow List mobile stack */
+            .workflow-list {
+                flex-direction: column;
+                gap: 15px;
+            }
+            /* CSS-ONLY FILTER TOGGLE LOGIC (for Projects) */
+            .mobile-toggle-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin: 0 0 15px 0;
+                padding: 10px 0;
+                background: var(--secondary-color);
+                color: white;
+                font-weight: 700;
+                cursor: pointer;
+                border: 1px solid var(--secondary-color);
+            }
+
+            .filter-tags-container {
+                display: none;
+                overflow-x: visible;
+                white-space: normal; 
+                padding-bottom: 0;
+            }
+            
+            .filter-tags-container .skill-tag {
+                margin-right: 5px;
+                margin-bottom: 5px;
+            }
+
+            #mobile-filter-toggle:checked ~ .filter-tags-container {
+                display: block;
+                padding: 10px 0;
+                border-top: 1px dashed var(--border-color);
+                margin-bottom: 20px;
+            }
+            
+            #mobile-filter-toggle:checked ~ .mobile-toggle-button {
+                background: var(--accent-color);
+            }
+        }
+        /* ---------------------------------- */
+        /* BUTTONS & LINKS (Unchanged for brevity, but retained in final code) */
         /* ---------------------------------- */
         a {
             color: var(--accent-color);
@@ -210,9 +387,7 @@
             border: none;
         }
         
-        /* ---------------------------------- */
-        /* NEW WORKFLOW STYLES */
-        /* ---------------------------------- */
+        /* NEW WORKFLOW STYLES (Unchanged) */
         #workflow {
             margin-bottom: 30px;
             padding: 30px;
@@ -249,7 +424,6 @@
             font-size: 1.1em;
             margin-bottom: 5px;
         }
-        /* Style for the step number/marker */
         .workflow-step:before {
             content: counter(step-counter);
             counter-increment: step-counter;
@@ -267,9 +441,7 @@
             font-weight: 700;
         }
         
-        /* ---------------------------------- */
-        /* PROJECTS SECTION & CSS FILTER LOGIC */
-        /* ---------------------------------- */
+        /* PROJECTS SECTION & CSS FILTER LOGIC (Unchanged) */
         #projects {
             margin-bottom: 30px;
             padding: 30px;
@@ -287,12 +459,10 @@
             font-family: var(--font-family-title);
         }
         
-        /* 1. Hide the radio inputs */
         .skill-filter-input {
             display: none;
         }
         
-        /* 2. Filter Tag Styling */
         .skill-tag {
             background: var(--tag-bg);
             color: var(--tag-color);
@@ -308,20 +478,15 @@
             transition: background 0.2s, color 0.2s, transform 0.1s;
         }
         
-        /* Special style for the mobile toggle button */
         .mobile-toggle-button {
             display: none;
         }
 
-
-        /* 3. Style the active (checked) label */
-        /* Reset all tags */
         .skill-filter-input + .filter-tags-container > label.skill-tag {
             background: var(--tag-bg); 
             color: var(--tag-color);
             border-color: var(--border-color);
         }
-        /* Highlight the active tag using the sibling selector */
         #filter-all:checked ~ .filter-tags-container > label[for='filter-all'],
         #filter-webdev:checked ~ .filter-tags-container > label[for='filter-webdev'],
         #filter-analysis:checked ~ .filter-tags-container > label[for='filter-analysis'],
@@ -334,12 +499,6 @@
             border-color: var(--accent-color);
         }
 
-        .project-tag:hover {
-            opacity: 0.8;
-            transform: scale(1.05);
-        }
-
-        /* PROJECT LIST STYLES */
         .project-list .project-item {
             display: none;
             border-bottom: 1px dashed var(--border-color);
@@ -385,7 +544,6 @@
             margin-right: 15px;
         }
 
-        /* CSS FILTER MAGIC: The inputs are now siblings of the project-list! */
         #filter-all:checked ~ .project-list .project-item {
             display: block;
         }
@@ -407,106 +565,7 @@
         #filter-development:checked ~ .project-list .development {
             display: block;
         }
-
-        /* FOOTER (FIXED ON DESKTOP) */
-        footer {
-            width: 100%;
-            background: var(--card-bg);
-            color: var(--secondary-color);
-            text-align: center;
-            padding: 10px 0 5px 0; /* Adjusted padding for new content */
-            font-size: 0.8em;
-            border-top: 2px solid var(--border-color);
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            z-index: 10;
-        }
-        .footer-content {
-             padding: 5px 0 10px 0; /* Added internal padding to separate from badges */
-        }
-        .footer-links a {
-            margin: 0 10px;
-        }
-
-        /* ---------------------------------- */
-        /* MOBILE ENHANCEMENTS (max-width: 600px) */
-        /* ---------------------------------- */
-        @media (max-width: 600px) {
-            
-            /* Footer scrolls on mobile only */
-            footer {
-                position: static; 
-                padding: 10px 0; /* Keep simple on mobile */
-            }
-            .footer-content {
-                padding: 5px 0;
-            }
-            body {
-                padding-bottom: 20px; 
-            }
-
-            header h1 { font-size: 2.5em; }
-            header h2 { font-size: 1em; }
-            .action-button {
-                display: block;
-                width: 90%;
-                margin: 10px auto;
-            }
-            .theme-switcher-container {
-                position: static;
-                justify-content: center;
-                margin-top: 15px;
-            }
-            
-            /* Workflow List mobile stack */
-            .workflow-list {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            /* CSS-ONLY FILTER TOGGLE LOGIC */
-            .mobile-toggle-button {
-                display: block;
-                width: 100%;
-                text-align: center;
-                margin: 0 0 15px 0;
-                padding: 10px 0;
-                background: var(--secondary-color);
-                color: white;
-                font-weight: 700;
-                cursor: pointer;
-                border: 1px solid var(--secondary-color);
-            }
-
-            .filter-tags-container {
-                display: none;
-                overflow-x: visible;
-                white-space: normal; 
-                padding-bottom: 0;
-            }
-            
-            .filter-tags-container .skill-tag {
-                margin-right: 5px;
-                margin-bottom: 5px;
-            }
-
-            #mobile-filter-toggle:checked ~ .filter-tags-container {
-                display: block;
-                padding: 10px 0;
-                border-top: 1px dashed var(--border-color);
-                margin-bottom: 20px;
-            }
-            
-            #mobile-filter-toggle:checked ~ .mobile-toggle-button {
-                background: var(--accent-color);
-            }
-            
-            /* Mobile badge size fix */
-            .badge {
-                font-size: 0.8em;
-            }
-        }
+        
     </style>
 </head>
 <body data-theme="journal">
@@ -644,21 +703,27 @@
         </section>
 
     </main> <footer>
-        
         <div class="footer-content">
             <p>&copy; 2025 Jordan Dudgeon | All Rights Reserved.</p>
             <div class="footer-links">
                 <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="mailto:jdudgeon1993@gmail.com">jdudgeon1993@gmail.com</a>
             </div>
-            <div class="lighthouse-badges">
+        </div>
+    </footer>
+
+    <div class="floating-metrics-container">
+        <input type="checkbox" id="show-metrics-toggle">
+
+        <div class="lighthouse-badges">
             <span class="badge performance">🚀 100 Performance</span>
             <span class="badge accessibility">♿ 100 Accessibility</span>
             <span class="badge best-practices">✅ 100 Best Practices</span>
             <span class="badge seo">🔎 91 SEO</span>
         </div>
-        </div>
-    </footer>
+        
+        <label for="show-metrics-toggle" class="metrics-toggle-link floating-button"></label>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
