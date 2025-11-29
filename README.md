@@ -413,7 +413,6 @@
             /* 4. Update the toggle button text when checked */
             #mobile-filter-toggle:checked ~ .mobile-toggle-button {
                 background: var(--accent-color);
-                content: "Close Filters ▲"; /* Note: content property only works on pseudo-elements, we'll rely on styling for feedback */
             }
 
         }
@@ -503,3 +502,76 @@
                     </p>
                     <div class="project-links">
                         <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" target="_blank" rel="noopener">View Report</a>
+                    </div>
+                </div>
+
+                <div class="project-item webdev freelance">
+                    <h4>Business Card Website for CAD Designer</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">Freelance</span>
+                    </div>
+                    <p>
+                        Delivered a high-speed, minimalist website optimized for a **CAD design client**, ensuring **maximum conversion** and lead capture efficiency.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://liveweave.com/6v2Mx2" target="_blank" rel="noopener">View Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-item development">
+                    <h4>TBD Project</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>The next great project. Stay tuned!</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Jordan Dudgeon | All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="mailto:jdudgeon1993@gmail.com">jdudgeon1993@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeSwitcher = document.getElementById('theme-switcher');
+            const body = document.body;
+            const storageKey = 'portfolioTheme';
+
+            // 1. Load theme from local storage
+            const storedTheme = localStorage.getItem(storageKey);
+            if (storedTheme) {
+                body.setAttribute('data-theme', storedTheme);
+                themeSwitcher.value = storedTheme;
+            } else {
+                // If no theme is stored, default to 'journal' and set the attribute
+                body.setAttribute('data-theme', 'journal');
+                themeSwitcher.value = 'journal';
+            }
+
+            // 2. Handle theme change on dropdown selection
+            if (themeSwitcher) { // Safety check to ensure the element exists before adding listener
+                 themeSwitcher.addEventListener('change', (event) => {
+                    const newTheme = event.target.value;
+                    body.setAttribute('data-theme', newTheme);
+                    localStorage.setItem(storageKey, newTheme);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
