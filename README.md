@@ -224,35 +224,22 @@
             margin-bottom: 8px;
             transition: background 0.2s, color 0.2s, transform 0.1s;
         }
+        
+        /* Special style for the mobile toggle button */
+        .mobile-toggle-button {
+            display: none; /* Hidden by default (desktop view) */
+        }
+
 
         /* 3. Style the active (checked) label */
-        /* Note: Labels are now inside .filter-tags-container */
-        .skill-filter-input:checked + .filter-tags-container .skill-tag:has(+.skill-filter-input:checked) {
-            background: var(--accent-color);
-            color: white;
-            border-color: var(--accent-color);
-        }
-        /* Fix to target active label more directly */
-        .skill-filter-input:checked + .skill-tag, 
-        .skill-filter-input + .filter-tags-container .skill-filter-input:checked ~ .skill-tag {
-            background: var(--accent-color);
-            color: white;
-            border-color: var(--accent-color);
-        }
-        /* Specific fix for the active tag styling */
-        .skill-filter-input:checked + .filter-tags-container .skill-tag:has(input:checked) {
-            background: var(--accent-color);
-            color: white;
-            border-color: var(--accent-color);
-        }
-        /* Use direct input selector and sibling combinator for the label within the container */
-        .skill-filter-input:checked + .filter-tags-container > label[for^='filter'] {
-            background: var(--tag-bg); /* Reset non-selected tags */
+        /* Reset all tags */
+        .skill-filter-input + .filter-tags-container > label.skill-tag {
+            background: var(--tag-bg); 
             color: var(--tag-color);
             border-color: var(--border-color);
         }
-        /* This is the reliable selector for the active tag (since the inputs are now before the container) */
-        .skill-filter-input:checked + .filter-tags-container > label[for='filter-all'],
+        /* Highlight the active tag using the sibling selector */
+        #filter-all:checked ~ .filter-tags-container > label[for='filter-all'],
         #filter-webdev:checked ~ .filter-tags-container > label[for='filter-webdev'],
         #filter-analysis:checked ~ .filter-tags-container > label[for='filter-analysis'],
         #filter-integration:checked ~ .filter-tags-container > label[for='filter-integration'],
@@ -263,7 +250,6 @@
             color: white;
             border-color: var(--accent-color);
         }
-
 
         .project-tag:hover {
             opacity: 0.8;
@@ -362,11 +348,10 @@
         /* ---------------------------------- */
         @media (max-width: 600px) {
             
-            /* Mobile Fix: Footer scrolls on mobile only */
+            /* Footer scrolls on mobile only */
             footer {
                 position: static; 
             }
-            /* Mobile Fix: Must re-add padding to body if footer becomes static */
             body {
                 padding-bottom: 20px; 
             }
@@ -384,14 +369,53 @@
                 margin-top: 15px;
             }
             
-            /* Horizontal Scrolling Filter */
-            .filter-tags-container {
-                overflow-x: scroll;
-                white-space: nowrap;
-                padding-bottom: 10px;
-                margin-bottom: 10px;
-                -webkit-overflow-scrolling: touch;
+            /* ---------------------------------- */
+            /* CSS-ONLY FILTER TOGGLE LOGIC       */
+            /* ---------------------------------- */
+            
+            /* 1. Show the Mobile Toggle Button */
+            .mobile-toggle-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin: 0 0 15px 0;
+                padding: 10px 0;
+                background: var(--secondary-color);
+                color: white;
+                font-weight: 700;
+                cursor: pointer;
+                border: 1px solid var(--secondary-color);
             }
+
+            /* 2. Hide the Filter Tags Container by default */
+            .filter-tags-container {
+                display: none;
+                /* Reset horizontal scrolling for the drop-down effect */
+                overflow-x: visible;
+                white-space: normal; 
+                padding-bottom: 0;
+            }
+            
+            /* Style the individual tags inside the toggled view */
+            .filter-tags-container .skill-tag {
+                margin-right: 5px;
+                margin-bottom: 5px;
+            }
+
+            /* 3. Show the Filter Tags Container when the toggle is checked */
+            #mobile-filter-toggle:checked ~ .filter-tags-container {
+                display: block;
+                padding: 10px 0;
+                border-top: 1px dashed var(--border-color);
+                margin-bottom: 20px;
+            }
+            
+            /* 4. Update the toggle button text when checked */
+            #mobile-filter-toggle:checked ~ .mobile-toggle-button {
+                background: var(--accent-color);
+                content: "Close Filters ▲"; /* Note: content property only works on pseudo-elements, we'll rely on styling for feedback */
+            }
+
         }
     </style>
 </head>
@@ -432,6 +456,10 @@
             <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
             <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
             <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
+            
+            <input type="checkbox" id="mobile-filter-toggle" class="skill-filter-input">
+            
+            <label for="mobile-filter-toggle" class="skill-tag mobile-toggle-button">Filter Projects ▼</label>
 
 
             <div class="filter-tags-container">
@@ -475,74 +503,3 @@
                     </p>
                     <div class="project-links">
                         <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" target="_blank" rel="noopener">View Report</a>
-                    </div>
-                </div>
-
-                <div class="project-item webdev freelance">
-                    <h4>Business Card Website for CAD Designer</h4>
-                    <div class="project-tags-list">
-                        <span class="project-tag">HTML</span>
-                        <span class="project-tag">CSS</span>
-                        <span class="project-tag">Freelance</span>
-                    </div>
-                    <p>
-                        Delivered a high-speed, minimalist website optimized for a **CAD design client**, ensuring **maximum conversion** and lead capture efficiency.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://liveweave.com/6v2Mx2" target="_blank" rel="noopener">View Demo</a>
-                    </div>
-                </div>
-
-                <div class="project-item development">
-                    <h4>TBD Project</h4>
-                    <div class="project-tags-list">
-                        <span class="project-tag">IN DEVELOPMENT</span>
-                    </div>
-                    <p>The next great project. Stay tuned!</p>
-                    <div class="project-links">
-                        <a href="#" onclick="return false;">Link TBD</a>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Jordan Dudgeon | All Rights Reserved.</p>
-            <div class="footer-links">
-                <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="mailto:jdudgeon1993@gmail.com">jdudgeon1993@gmail.com</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeSwitcher = document.getElementById('theme-switcher');
-            const body = document.body;
-            const storageKey = 'portfolioTheme';
-
-            // 1. Load theme from local storage
-            const storedTheme = localStorage.getItem(storageKey);
-            if (storedTheme) {
-                body.setAttribute('data-theme', storedTheme);
-                themeSwitcher.value = storedTheme;
-            } else {
-                // If no theme is stored, default to 'journal' and set the attribute
-                body.setAttribute('data-theme', 'journal');
-                themeSwitcher.value = 'journal';
-            }
-
-            // 2. Handle theme change on dropdown selection
-            themeSwitcher.addEventListener('change', (event) => {
-                const newTheme = event.target.value;
-                body.setAttribute('data-theme', newTheme);
-                localStorage.setItem(storageKey, newTheme);
-            });
-        });
-    </script>
-</body>
-</html>
