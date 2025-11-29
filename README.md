@@ -208,3 +208,483 @@
             background: var(--ornamental-line);
             margin: 30px 0;
             border: none;
+        }
+        
+        /* ---------------------------------- */
+        /* NEW WORKFLOW STYLES */
+        /* ---------------------------------- */
+        #workflow {
+            margin-bottom: 30px;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        #workflow h3 {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-family: var(--font-family-title);
+        }
+        .workflow-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .workflow-step {
+            flex: 1 1 200px;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+            position: relative;
+        }
+        .workflow-step strong {
+            display: block;
+            color: var(--accent-color);
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        /* Style for the step number/marker */
+        .workflow-step:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: -17px;
+            top: 0;
+            background: var(--accent-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+        
+        /* ---------------------------------- */
+        /* PROJECTS SECTION & CSS FILTER LOGIC */
+        /* ---------------------------------- */
+        #projects {
+            margin-bottom: 30px;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        #projects h3 {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-family: var(--font-family-title);
+        }
+        
+        /* 1. Hide the radio inputs */
+        .skill-filter-input {
+            display: none;
+        }
+        
+        /* 2. Filter Tag Styling */
+        .skill-tag {
+            background: var(--tag-bg);
+            color: var(--tag-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            border: 1px solid var(--border-color);
+            font-weight: 400;
+            cursor: pointer;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            transition: background 0.2s, color 0.2s, transform 0.1s;
+        }
+        
+        /* Special style for the mobile toggle button */
+        .mobile-toggle-button {
+            display: none;
+        }
+
+
+        /* 3. Style the active (checked) label */
+        /* Reset all tags */
+        .skill-filter-input + .filter-tags-container > label.skill-tag {
+            background: var(--tag-bg); 
+            color: var(--tag-color);
+            border-color: var(--border-color);
+        }
+        /* Highlight the active tag using the sibling selector */
+        #filter-all:checked ~ .filter-tags-container > label[for='filter-all'],
+        #filter-webdev:checked ~ .filter-tags-container > label[for='filter-webdev'],
+        #filter-analysis:checked ~ .filter-tags-container > label[for='filter-analysis'],
+        #filter-integration:checked ~ .filter-tags-container > label[for='filter-integration'],
+        #filter-design:checked ~ .filter-tags-container > label[for='filter-design'],
+        #filter-freelance:checked ~ .filter-tags-container > label[for='filter-freelance'],
+        #filter-development:checked ~ .filter-tags-container > label[for='filter-development'] {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .project-tag:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        /* PROJECT LIST STYLES */
+        .project-list .project-item {
+            display: none;
+            border-bottom: 1px dashed var(--border-color);
+            padding: 20px 0;
+            transition: background-color 0.2s, border-left 0.2s, padding-left 0.2s;
+        }
+
+        .project-list .project-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .project-list .project-item:hover {
+            background-color: color-mix(in srgb, var(--card-bg) 95%, var(--accent-color));
+            border-left: 5px solid var(--accent-color);
+            padding-left: 25px;
+        }
+        .project-list .project-item h4 {
+            font-size: 1.35em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 0 0 5px 0;
+            font-family: var(--font-family-title);
+        }
+        .project-tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .project-tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 2px;
+            font-size: 0.75em;
+            text-transform: uppercase;
+        }
+        .project-links a {
+            font-weight: 700;
+            text-transform: none;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-color);
+            margin-right: 15px;
+        }
+
+        /* CSS FILTER MAGIC: The inputs are now siblings of the project-list! */
+        #filter-all:checked ~ .project-list .project-item {
+            display: block;
+        }
+        #filter-webdev:checked ~ .project-list .webdev {
+            display: block;
+        }
+        #filter-analysis:checked ~ .project-list .analysis {
+            display: block;
+        }
+        #filter-integration:checked ~ .project-list .integration {
+            display: block;
+        }
+        #filter-design:checked ~ .project-list .design {
+            display: block;
+        }
+        #filter-freelance:checked ~ .project-list .freelance {
+            display: block;
+        }
+        #filter-development:checked ~ .project-list .development {
+            display: block;
+        }
+
+        /* FOOTER (FIXED ON DESKTOP) */
+        footer {
+            width: 100%;
+            background: var(--card-bg);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 10px 0 5px 0; /* Adjusted padding for new content */
+            font-size: 0.8em;
+            border-top: 2px solid var(--border-color);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .footer-content {
+             padding: 5px 0 10px 0; /* Added internal padding to separate from badges */
+        }
+        .footer-links a {
+            margin: 0 10px;
+        }
+
+        /* ---------------------------------- */
+        /* MOBILE ENHANCEMENTS (max-width: 600px) */
+        /* ---------------------------------- */
+        @media (max-width: 600px) {
+            
+            /* Footer scrolls on mobile only */
+            footer {
+                position: static; 
+                padding: 10px 0; /* Keep simple on mobile */
+            }
+            .footer-content {
+                padding: 5px 0;
+            }
+            body {
+                padding-bottom: 20px; 
+            }
+
+            header h1 { font-size: 2.5em; }
+            header h2 { font-size: 1em; }
+            .action-button {
+                display: block;
+                width: 90%;
+                margin: 10px auto;
+            }
+            .theme-switcher-container {
+                position: static;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            
+            /* Workflow List mobile stack */
+            .workflow-list {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            /* CSS-ONLY FILTER TOGGLE LOGIC */
+            .mobile-toggle-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin: 0 0 15px 0;
+                padding: 10px 0;
+                background: var(--secondary-color);
+                color: white;
+                font-weight: 700;
+                cursor: pointer;
+                border: 1px solid var(--secondary-color);
+            }
+
+            .filter-tags-container {
+                display: none;
+                overflow-x: visible;
+                white-space: normal; 
+                padding-bottom: 0;
+            }
+            
+            .filter-tags-container .skill-tag {
+                margin-right: 5px;
+                margin-bottom: 5px;
+            }
+
+            #mobile-filter-toggle:checked ~ .filter-tags-container {
+                display: block;
+                padding: 10px 0;
+                border-top: 1px dashed var(--border-color);
+                margin-bottom: 20px;
+            }
+            
+            #mobile-filter-toggle:checked ~ .mobile-toggle-button {
+                background: var(--accent-color);
+            }
+            
+            /* Mobile badge size fix */
+            .badge {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body data-theme="journal">
+    <main class="container"> 
+        <header>
+            <div class="theme-switcher-container">
+                <label for="theme-switcher">Theme:</label>
+                <select id="theme-switcher">
+                    <option value="journal">Classic Journal</option>
+                    <option value="deep-sea">Deep Sea Coder</option>
+                    <option value="midnight-crimson">Midnight Crimson</option>
+                </select>
+            </div>
+            
+            <h1>Jordan Dudgeon</h1>
+            <h2>Designing Seamless Experiences. Transforming Complexity.</h2> 
+            
+            <p class="profile-summary">
+                My focus is building intuitive, high-performance systems that **transform complex technical challenges into simple, efficient solutions** for both users and business operations.
+            </p>
+            
+            <div class="button-group">
+                <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener" class="action-button">LinkedIn</a>
+                <a href="mailto:jdudgeon1993@gmail.com" class="action-button">Email Me</a>
+            </div>
+        </header>
+
+        <div class="ornamental-divider"></div>
+        
+        <section id="workflow">
+            <h3>Deployment Workflow & Seamless Delivery 🚀</h3>
+            <p style="margin-bottom: 25px;">
+                A clear, end-to-end process ensuring **optimal performance, maintainability, and seamless client alignment** for every deliverable.
+            </p>
+            <ul class="workflow-list" style="counter-reset: step-counter;">
+                <li class="workflow-step">
+                    <strong>Phase 1: Identify & Strategize</strong>
+                    User research, **complexity analysis**, and wireframing to establish the core, **intuitive** design system.
+                </li>
+                <li class="workflow-step">
+                    <strong>Phase 2: Build & Test Efficiency</strong>
+                    Semantic code implementation with rigorous testing to ensure **high-performance** and highly **efficient solutions**.
+                </li>
+                <li class="workflow-step">
+                    <strong>Phase 3: Launch & Deliver</strong>
+                    Version control, asset optimization, and **seamless** deployment into the final production environment.
+                </li>
+                <li class="workflow-step">
+                    <strong>Phase 4: Iterate & Optimize</strong>
+                    Continuous monitoring (Lighthouse) and iteration to maintain peak **performance** and the **simple, efficient user experience**.
+                </li>
+            </ul>
+        </section>
+
+        <div class="ornamental-divider"></div>
+
+
+        <section id="projects">
+            <h3>Projects & Index</h3>
+
+            <input type="radio" id="filter-all" name="skill-filter" class="skill-filter-input" checked>
+            <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-integration" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
+            
+            <input type="checkbox" id="mobile-filter-toggle" class="skill-filter-input">
+            
+            <label for="mobile-filter-toggle" class="skill-tag mobile-toggle-button">Filter Projects ▼</label>
+
+
+            <div class="filter-tags-container">
+                <label for="filter-all" class="skill-tag">Completed Work</label>
+                <label for="filter-webdev" class="skill-tag">Seamless UI/UX Development</label>
+                <label for="filter-analysis" class="skill-tag">Complexity Mapping & Analysis</label>
+                <label for="filter-integration" class="skill-tag">Efficient System Integration</label>
+                <label for="filter-design" class="skill-tag">Intuitive Design Systems</label>
+                <label for="filter-freelance" class="skill-tag">Client Solutions</label>
+                <label for="filter-development" class="skill-tag">In Development</label>
+            </div>
+            
+            <div class="project-list" style="margin-top: 20px;">
+                
+                <div class="project-item webdev design">
+                    <h4>Dynamic Themed Portfolio (Current Site)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS/SASS</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">Design Systems</span>
+                    </div>
+                    <p>
+                        **Live Demonstration of Scalability.** Built with modular CSS themes and CSS-only filtering for **instant, zero-latency UX** and future-proof design systems.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://jdudgeon1993.github.io/jdudgeon1993/" target="_blank" rel="noopener">View Live</a>
+                        <a href="https://github.com/jdudgeon1993/jdudgeon1993" target="_blank" rel="noopener">Code</a>
+                    </div>
+                </div>
+
+                <div class="project-item webdev analysis integration freelance">
+                    <h4>Workflow Optimization & Client Website Delivery</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">Business Analysis</span>
+                        <span class="project-tag">System Integration</span>
+                        <span class="project-tag">Freelance</span>
+                        <span class="project-tag">Minimalist UI</span>
+                    </div>
+                    <p>
+                        **Complexity Transformed.** Conducted deep workflow analysis to **reduce departmental friction,** then delivered a high-speed, minimalist website that maximized client lead conversion.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" target="_blank" rel="noopener">View Report (Analysis)</a>
+                        <a href="https://liveweave.com/6v2Mx2" target="_blank" rel="noopener">View Demo (Website)</a>
+                    </div>
+                </div>
+
+                <div class="project-item development">
+                    <h4>TBD Project</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>
+                        **In Development.** Focused on building a solution that demonstrates **full-stack technical efficiency** and superior user workflow design.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
+            </div>
+
+        </section>
+
+    </main> <footer>
+        <div class="lighthouse-badges">
+            <span class="badge performance">🚀 100 Performance</span>
+            <span class="badge accessibility">♿ 100 Accessibility</span>
+            <span class="badge best-practices">✅ 100 Best Practices</span>
+            <span class="badge seo">🔎 91 SEO</span>
+        </div>
+        <div class="footer-content">
+            <p>&copy; 2025 Jordan Dudgeon | All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="mailto:jdudgeon1993@gmail.com">jdudgeon1993@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeSwitcher = document.getElementById('theme-switcher');
+            const body = document.body;
+            const storageKey = 'portfolioTheme';
+
+            // 1. Load theme from local storage
+            const storedTheme = localStorage.getItem(storageKey);
+            if (storedTheme) {
+                body.setAttribute('data-theme', storedTheme);
+                themeSwitcher.value = storedTheme;
+            } else {
+                // If no theme is stored, default to 'journal' and set the attribute
+                body.setAttribute('data-theme', 'journal');
+                themeSwitcher.value = 'journal';
+            }
+
+            // 2. Handle theme change on dropdown selection
+            if (themeSwitcher) { 
+                 themeSwitcher.addEventListener('change', (event) => {
+                    const newTheme = event.target.value;
+                    body.setAttribute('data-theme', newTheme);
+                    localStorage.setItem(storageKey, newTheme);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
