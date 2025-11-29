@@ -73,7 +73,7 @@
             color: var(--text-color);
             line-height: 1.7;
             padding-bottom: 70px;
-            transition: background-color 0.5s, color 0.5s; /* Smooth theme transition */
+            transition: background-color 0.5s, color 0.5s;
         }
 
         .container {
@@ -84,7 +84,7 @@
         }
 
         /* ---------------------------------- */
-        /* HEADER / PROFILE (TYPOGRAPHY ENHANCEMENT) */
+        /* HEADER / PROFILE */
         /* ---------------------------------- */
         header {
             padding: 30px 0;
@@ -97,8 +97,8 @@
             font-size: 3em;
             color: var(--accent-color);
             margin: 0 0 5px 0;
-            text-transform: uppercase; /* Use small-caps variant */
-            letter-spacing: 0.1em; /* Added for a classic look */
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             font-family: var(--font-family-title);
         }
         header h2 {
@@ -106,8 +106,8 @@
             color: var(--secondary-color);
             margin: 0 0 20px 0;
             font-weight: 400;
-            font-variant: small-caps; /* Refined look */
-            letter-spacing: 0.1em; /* Added for a classic look */
+            font-variant: small-caps;
+            letter-spacing: 0.1em;
         }
         .profile-summary {
             max-width: 600px;
@@ -137,7 +137,7 @@
         }
 
         /* ---------------------------------- */
-        /* BUTTONS & LINKS (MICRO-INTERACTION)*/
+        /* BUTTONS & LINKS */
         /* ---------------------------------- */
         a {
             color: var(--accent-color);
@@ -163,7 +163,7 @@
             border: none; 
             cursor: pointer;
             box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
-            text-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Added polish */
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
             transition: background 0.2s, box-shadow 0.1s, transform 0.1s;
         }
         .action-button:hover {
@@ -172,7 +172,7 @@
             transform: translateY(1px);
         }
         .action-button:focus {
-             outline: 3px solid var(--accent-color); /* A11Y improvement */
+             outline: 3px solid var(--accent-color);
              outline-offset: 2px;
         }
         
@@ -208,8 +208,8 @@
         .skill-filter-input {
             display: none;
         }
-
-        /* 2. Style the labels (which are the clickable skill tags) */
+        
+        /* 2. Filter Tag Styling */
         .skill-tag {
             background: var(--tag-bg);
             color: var(--tag-color);
@@ -219,7 +219,7 @@
             border: 1px solid var(--border-color);
             font-weight: 400;
             cursor: pointer;
-            display: inline-block;
+            display: inline-block; /* Essential for horizontal scrolling */
             margin-right: 8px;
             margin-bottom: 8px;
             transition: background 0.2s, color 0.2s, transform 0.1s;
@@ -231,7 +231,6 @@
             color: white;
             border-color: var(--accent-color);
         }
-        /* Project Tag Hover Enhancement */
         .project-tag:hover {
             opacity: 0.8;
             transform: scale(1.05);
@@ -255,8 +254,8 @@
             padding-left: 25px;
         }
         .project-list .project-item h4 {
-            font-size: 1.35em; /* Slightly increased size */
-            font-weight: 700; /* Ensured bold title */
+            font-size: 1.35em;
+            font-weight: 700;
             color: var(--accent-color);
             margin: 0 0 5px 0;
             font-family: var(--font-family-title);
@@ -324,8 +323,16 @@
             margin: 0 10px;
         }
 
-        /* Mobile Adjustments */
+        /* ---------------------------------- */
+        /* MOBILE ENHANCEMENTS (max-width: 600px) */
+        /* ---------------------------------- */
         @media (max-width: 600px) {
+            
+            /* Footer Optimization */
+            footer {
+                position: static; /* Let the footer scroll off-screen on mobile */
+            }
+
             header h1 { font-size: 2.5em; }
             header h2 { font-size: 1em; }
             .action-button {
@@ -337,6 +344,15 @@
                 position: static;
                 justify-content: center;
                 margin-top: 15px;
+            }
+            
+            /* Horizontal Scrolling Filter */
+            .filter-tags-container {
+                overflow-x: scroll; /* Allows horizontal scrolling */
+                white-space: nowrap; /* Prevents tags from wrapping */
+                padding-bottom: 10px; /* Space for scroll bar */
+                margin-bottom: 10px;
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
             }
         }
     </style>
@@ -371,26 +387,28 @@
         <section id="projects">
             <h3>Projects & Index</h3>
 
-            <input type="radio" id="filter-all" name="skill-filter" class="skill-filter-input" checked>
-            <label for="filter-all" class="skill-tag">Completed Work</label>
+            <div class="filter-tags-container">
+                <input type="radio" id="filter-all" name="skill-filter" class="skill-filter-input" checked>
+                <label for="filter-all" class="skill-tag">Completed Work</label>
 
-            <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
-            <label for="filter-webdev" class="skill-tag">Full-Stack UI/UX</label>
+                <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
+                <label for="filter-webdev" class="skill-tag">Full-Stack UI/UX</label>
 
-            <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
-            <label for="filter-analysis" class="skill-tag">Process Mapping & Analysis</label>
+                <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
+                <label for="filter-analysis" class="skill-tag">Process Mapping & Analysis</label>
 
-            <input type="radio" id="filter-integration" name="skill-filter" class="skill-filter-input">
-            <label for="filter-integration" class="skill-tag">System & Data Integration</label>
-            
-            <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
-            <label for="filter-design" class="skill-tag">Scalable Design Systems</label>
-            
-            <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
-            <label for="filter-freelance" class="skill-tag">Client Solutions</label>
-            
-            <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
-            <label for="filter-development" class="skill-tag">In Development</label>
+                <input type="radio" id="filter-integration" name="skill-filter" class="skill-filter-input">
+                <label for="filter-integration" class="skill-tag">System & Data Integration</label>
+                
+                <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
+                <label for="filter-design" class="skill-tag">Scalable Design Systems</label>
+                
+                <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
+                <label for="filter-freelance" class="skill-tag">Client Solutions</label>
+                
+                <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
+                <label for="filter-development" class="skill-tag">In Development</label>
+            </div>
             
             <div class="project-list" style="margin-top: 20px;">
                 
@@ -442,126 +460,15 @@
                 </div>
 
                 <div class="project-item development">
-                    <h4>TBD for each new one (Project 1)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
+                    <h4>TBD Project</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>The next great project. Stay tuned!</p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
                 </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 2)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 3)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 4)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 5)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 6)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 7)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 8)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 9)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 10)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 11)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 12)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 13)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 14)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 15)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 16)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 17)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 18)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 19)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-                <div class="project-item development">
-                    <h4>TBD for each new one (Project 20)</h4>
-                    <div class="project-tags-list"><span class="project-tag">IN DEVELOPMENT</span></div>
-                    <p>In Development</p>
-                    <div class="project-links"><a href="#" onclick="return false;">Link TBD</a></div>
-                </div>
-
             </div>
 
         </section>
