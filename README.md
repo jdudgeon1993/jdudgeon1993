@@ -83,6 +83,32 @@
         }
 
         /* ---------------------------------- */
+        /* LIGHTHOUSE BADGES (New Section)    */
+        /* ---------------------------------- */
+        .lighthouse-badges {
+            margin: 20px auto 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.9em;
+            color: white; /* Ensures readability over colored backgrounds */
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Score-specific colors for high visibility */
+        .performance { background-color: #00c853; /* Green for 100 */ }
+        .accessibility { background-color: #00c853; /* Green for 100 */ }
+        .best-practices { background-color: #00c853; /* Green for 100 */ }
+        .seo { background-color: #ffab00; /* Amber for 91 */ }
+
+        /* ---------------------------------- */
         /* HEADER / PROFILE */
         /* ---------------------------------- */
         header {
@@ -467,7 +493,11 @@
             #mobile-filter-toggle:checked ~ .mobile-toggle-button {
                 background: var(--accent-color);
             }
-
+            
+            /* Mobile badge size fix */
+            .badge {
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
@@ -485,6 +515,13 @@
             
             <h1>Jordan Dudgeon</h1>
             <h2>Designing Seamless Experiences. Transforming Complexity.</h2> 
+
+            <div class="lighthouse-badges">
+                <span class="badge performance">🚀 100 Performance</span>
+                <span class="badge accessibility">♿ 100 Accessibility</span>
+                <span class="badge best-practices">✅ 100 Best Practices</span>
+                <span class="badge seo">🔎 91 SEO</span>
+            </div>
             
             <p class="profile-summary">
                 My focus is building intuitive, high-performance systems that **transform complex technical challenges into simple, efficient solutions** for both users and business operations.
