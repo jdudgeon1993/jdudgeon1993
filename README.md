@@ -8,9 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Jordan Dudgeon – Portfolio</title>
     <style>
-        /* [CSS Styles are omitted for brevity, as only HTML content changed, but the full CSS from the last step is needed here.] */
-        /* ... All CSS definitions from the previous response should be here ... */
-        
+        /* [CSS Styles remain unchanged] */
         :root {
             --font-family-title: 'Playfair Display', serif;
             --font-family-body: 'Georgia', 'Times New Roman', serif;
@@ -211,7 +209,7 @@
             justify-content: space-between;
         }
         .workflow-step {
-            flex: 1 1 200px; /* Base for column layout */
+            flex: 1 1 200px;
             border-left: 3px solid var(--accent-color);
             padding-left: 15px;
             position: relative;
@@ -244,7 +242,6 @@
         /* PROJECTS SECTION & CSS FILTER LOGIC */
         /* ---------------------------------- */
         #projects {
-            /* Kept standard project styles */
             margin-bottom: 30px;
             padding: 30px;
             background-color: var(--card-bg);
@@ -284,7 +281,7 @@
         
         /* Special style for the mobile toggle button */
         .mobile-toggle-button {
-            display: none; /* Hidden by default (desktop view) */
+            display: none;
         }
 
 
@@ -315,7 +312,7 @@
 
         /* PROJECT LIST STYLES */
         .project-list .project-item {
-            display: none; /* All hidden initially */
+            display: none;
             border-bottom: 1px dashed var(--border-color);
             padding: 20px 0;
             transition: background-color 0.2s, border-left 0.2s, padding-left 0.2s;
@@ -506,20 +503,20 @@
             </p>
             <ul class="workflow-list" style="counter-reset: step-counter;">
                 <li class="workflow-step">
-                    <strong>Phase 1: Discovery & Complexity Mapping</strong>
-                    User research, **complexity analysis**, wireframing, and creating the core design system for an **intuitive** interface.
+                    <strong>Phase 1: Identify & Strategize</strong>
+                    User research, **complexity analysis**, and wireframing to establish the core, **intuitive** design system.
                 </li>
                 <li class="workflow-step">
-                    <strong>Phase 2: Development & Efficiency QA</strong>
-                    Clean, semantic code implementation. Rigorous testing (unit/UAT) to ensure high-performance and **efficient solutions**.
+                    <strong>Phase 2: Build & Test Efficiency</strong>
+                    Semantic code implementation with rigorous testing to ensure **high-performance** and highly **efficient solutions**.
                 </li>
                 <li class="workflow-step">
-                    <strong>Phase 3: Deployment & Go-Live</strong>
-                    Version control finalization, asset optimization, and **seamless** deployment to the production environment.
+                    <strong>Phase 3: Launch & Deliver</strong>
+                    Version control, asset optimization, and **seamless** deployment into the final production environment.
                 </li>
                 <li class="workflow-step">
-                    <strong>Phase 4: Optimization & Maintenance</strong>
-                    Continuous performance monitoring and iteration to sustain the **simple, efficient user experience**.
+                    <strong>Phase 4: Iterate & Optimize</strong>
+                    Continuous monitoring (Lighthouse) and iteration to maintain peak **performance** and the **simple, efficient user experience**.
                 </li>
             </ul>
         </section>
@@ -528,81 +525,83 @@
 
 
         <section id="projects">
-    <h3>Projects & Index</h3>
+            <h3>Projects & Index</h3>
 
-    <input type="radio" id="filter-all" name="skill-filter" class="skill-filter-input" checked>
-    <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
-    <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
-    <input type="radio" id="filter-integration" name="skill-filter" class="skill-filter-input">
-    <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
-    <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
-    <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
-    
-    <input type="checkbox" id="mobile-filter-toggle" class="skill-filter-input">
-    
-    <label for="mobile-filter-toggle" class="skill-tag mobile-toggle-button">Filter Projects ▼</label>
+            <input type="radio" id="filter-all" name="skill-filter" class="skill-filter-input" checked>
+            <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-integration" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
+            <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
+            
+            <input type="checkbox" id="mobile-filter-toggle" class="skill-filter-input">
+            
+            <label for="mobile-filter-toggle" class="skill-tag mobile-toggle-button">Filter Projects ▼</label>
 
 
-    <div class="filter-tags-container">
-        <label for="filter-all" class="skill-tag">Completed Work</label>
-        <label for="filter-webdev" class="skill-tag">Seamless UI/UX Development</label>
-        <label for="filter-analysis" class="skill-tag">Complexity Mapping & Analysis</label>
-        <label for="filter-integration" class="skill-tag">Efficient System Integration</label>
-        <label for="filter-design" class="skill-tag">Intuitive Design Systems</label>
-        <label for="filter-freelance" class="skill-tag">Client Solutions</label>
-        <label for="filter-development" class="skill-tag">In Development</label>
-    </div>
-    
-    <div class="project-list" style="margin-top: 20px;">
-        
-        <div class="project-item webdev design">
-            <h4>Dynamic Themed Portfolio (Current Site)</h4>
-            <div class="project-tags-list">
-                <span class="project-tag">HTML</span>
-                <span class="project-tag">CSS/SASS</span>
-                <span class="project-tag">JavaScript</span>
-                <span class="project-tag">Design Systems</span>
+            <div class="filter-tags-container">
+                <label for="filter-all" class="skill-tag">Completed Work</label>
+                <label for="filter-webdev" class="skill-tag">Seamless UI/UX Development</label>
+                <label for="filter-analysis" class="skill-tag">Complexity Mapping & Analysis</label>
+                <label for="filter-integration" class="skill-tag">Efficient System Integration</label>
+                <label for="filter-design" class="skill-tag">Intuitive Design Systems</label>
+                <label for="filter-freelance" class="skill-tag">Client Solutions</label>
+                <label for="filter-development" class="skill-tag">In Development</label>
             </div>
-            <p>
-                Demonstrating mastery of clean CSS, this portfolio features **CSS-only filtering** and **thematic design systems** for immediate, low-latency UX.
-            </p>
-            <div class="project-links">
-                <a href="https://jdudgeon1993.github.io/jdudgeon1993/" target="_blank" rel="noopener">View Live</a>
-                <a href="https://github.com/jdudgeon1993/jdudgeon1993" target="_blank" rel="noopener">Code</a>
-            </div>
-        </div>
+            
+            <div class="project-list" style="margin-top: 20px;">
+                
+                <div class="project-item webdev design">
+                    <h4>Dynamic Themed Portfolio (Current Site)</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS/SASS</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">Design Systems</span>
+                    </div>
+                    <p>
+                        **Live Demonstration of Scalability.** Built with modular CSS themes and CSS-only filtering for **instant, zero-latency UX** and future-proof design systems.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://jdudgeon1993.github.io/jdudgeon1993/" target="_blank" rel="noopener">View Live</a>
+                        <a href="https://github.com/jdudgeon1993/jdudgeon1993" target="_blank" rel="noopener">Code</a>
+                    </div>
+                </div>
 
-        <div class="project-item webdev analysis integration freelance">
-            <h4>Workflow Optimization & Client Website Delivery</h4>
-            <div class="project-tags-list">
-                <span class="project-tag">Business Analysis</span>
-                <span class="project-tag">System Integration</span>
-                <span class="project-tag">Freelance</span>
-                <span class="project-tag">Minimalist UI</span>
-            </div>
-            <p>
-                A combined project involving comprehensive **business analysis to reduce cross-departmental friction** (View Report), followed by the design and **delivery of a high-speed, minimalist website** to optimize client lead conversion (View Demo).
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" target="_blank" rel="noopener">View Report (Analysis)</a>
-                <a href="https://liveweave.com/6v2Mx2" target="_blank" rel="noopener">View Demo (Website)</a>
-            </div>
-        </div>
+                <div class="project-item webdev analysis integration freelance">
+                    <h4>Workflow Optimization & Client Website Delivery</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">Business Analysis</span>
+                        <span class="project-tag">System Integration</span>
+                        <span class="project-tag">Freelance</span>
+                        <span class="project-tag">Minimalist UI</span>
+                    </div>
+                    <p>
+                        **Complexity Transformed.** Conducted deep workflow analysis to **reduce departmental friction,** then delivered a high-speed, minimalist website that maximized client lead conversion.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" target="_blank" rel="noopener">View Report (Analysis)</a>
+                        <a href="https://liveweave.com/6v2Mx2" target="_blank" rel="noopener">View Demo (Website)</a>
+                    </div>
+                </div>
 
-        <div class="project-item development">
-            <h4>TBD Project</h4>
-            <div class="project-tags-list">
-                <span class="project-tag">IN DEVELOPMENT</span>
+                <div class="project-item development">
+                    <h4>TBD Project</h4>
+                    <div class="project-tags-list">
+                        <span class="project-tag">IN DEVELOPMENT</span>
+                    </div>
+                    <p>
+                        **In Development.** Focused on building a solution that demonstrates **full-stack technical efficiency** and superior user workflow design.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" onclick="return false;">Link TBD</a>
+                    </div>
+                </div>
+                
             </div>
-            <p>The next great project. Stay tuned!</p>
-            <div class="project-links">
-                <a href="#" onclick="return false;">Link TBD</a>
-            </div>
-        </div>
-        
-    </div>
 
-</section>
+        </section>
 
     </div>
 
