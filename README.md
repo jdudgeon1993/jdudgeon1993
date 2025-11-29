@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Jordan Dudgeon – Portfolio</title>
     <style>
+        /* [Theme Definitions and Base Styles remain unchanged] */
+
         /* ---------------------------------- */
         /* THEME DEFINITIONS (CSS VARIABLES)  */
         /* ---------------------------------- */
@@ -183,11 +185,69 @@
             margin: 30px 0;
             border: none;
         }
-
+        
+        /* ---------------------------------- */
+        /* NEW WORKFLOW STYLES */
+        /* ---------------------------------- */
+        #workflow {
+            margin-bottom: 30px;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        #workflow h3 {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-family: var(--font-family-title);
+        }
+        .workflow-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .workflow-step {
+            flex: 1 1 200px; /* Base for column layout */
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+            position: relative;
+        }
+        .workflow-step strong {
+            display: block;
+            color: var(--accent-color);
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        /* Style for the step number/marker */
+        .workflow-step:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: -17px;
+            top: 0;
+            background: var(--accent-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+        
         /* ---------------------------------- */
         /* PROJECTS SECTION & CSS FILTER LOGIC */
         /* ---------------------------------- */
         #projects {
+            /* Kept standard project styles */
             margin-bottom: 30px;
             padding: 30px;
             background-color: var(--card-bg);
@@ -369,11 +429,13 @@
                 margin-top: 15px;
             }
             
-            /* ---------------------------------- */
-            /* CSS-ONLY FILTER TOGGLE LOGIC       */
-            /* ---------------------------------- */
-            
-            /* 1. Show the Mobile Toggle Button */
+            /* Workflow List mobile stack */
+            .workflow-list {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            /* CSS-ONLY FILTER TOGGLE LOGIC */
             .mobile-toggle-button {
                 display: block;
                 width: 100%;
@@ -387,22 +449,18 @@
                 border: 1px solid var(--secondary-color);
             }
 
-            /* 2. Hide the Filter Tags Container by default */
             .filter-tags-container {
                 display: none;
-                /* Reset horizontal scrolling for the drop-down effect */
                 overflow-x: visible;
                 white-space: normal; 
                 padding-bottom: 0;
             }
             
-            /* Style the individual tags inside the toggled view */
             .filter-tags-container .skill-tag {
                 margin-right: 5px;
                 margin-bottom: 5px;
             }
 
-            /* 3. Show the Filter Tags Container when the toggle is checked */
             #mobile-filter-toggle:checked ~ .filter-tags-container {
                 display: block;
                 padding: 10px 0;
@@ -410,7 +468,6 @@
                 margin-bottom: 20px;
             }
             
-            /* 4. Update the toggle button text when checked */
             #mobile-filter-toggle:checked ~ .mobile-toggle-button {
                 background: var(--accent-color);
             }
@@ -444,6 +501,34 @@
         </header>
 
         <div class="ornamental-divider"></div>
+        
+        <section id="workflow">
+            <h3>Project Deployment Workflow 🚀</h3>
+            <p style="margin-bottom: 25px;">
+                A clear, end-to-end process ensuring **optimal performance, maintainability, and client alignment** for every deliverable.
+            </p>
+            <ul class="workflow-list" style="counter-reset: step-counter;">
+                <li class="workflow-step">
+                    <strong>Phase 1: Discovery & Design</strong>
+                    Process mapping, user research, wireframing, and creating a scalable design system (CSS variables).
+                </li>
+                <li class="workflow-step">
+                    <strong>Phase 2: Development & QA</strong>
+                    Clean, semantic code implementation. Rigorous testing (unit/integration/UAT) and cross-browser compatibility checks.
+                </li>
+                <li class="workflow-step">
+                    <strong>Phase 3: Deployment & Go-Live</strong>
+                    Version control finalization (Git), asset optimization, and deployment to the production environment (e.g., GitHub Pages).
+                </li>
+                <li class="workflow-step">
+                    <strong>Phase 4: Optimization & Maintenance</strong>
+                    Performance monitoring (Lighthouse scores), SEO review, dependency updates, and continuous iteration based on feedback.
+                </li>
+            </ul>
+        </section>
+
+        <div class="ornamental-divider"></div>
+
 
         <section id="projects">
             <h3>Projects & Index</h3>
@@ -564,7 +649,7 @@
             }
 
             // 2. Handle theme change on dropdown selection
-            if (themeSwitcher) { // Safety check to ensure the element exists before adding listener
+            if (themeSwitcher) { 
                  themeSwitcher.addEventListener('change', (event) => {
                     const newTheme = event.target.value;
                     body.setAttribute('data-theme', newTheme);
