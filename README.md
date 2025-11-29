@@ -72,7 +72,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.7;
-            padding-bottom: 70px;
+            padding-bottom: 70px; /* Needed for fixed footer */
             transition: background-color 0.5s, color 0.5s;
         }
 
@@ -219,7 +219,7 @@
             border: 1px solid var(--border-color);
             font-weight: 400;
             cursor: pointer;
-            display: inline-block; /* Essential for horizontal scrolling */
+            display: inline-block;
             margin-right: 8px;
             margin-bottom: 8px;
             transition: background 0.2s, color 0.2s, transform 0.1s;
@@ -242,6 +242,12 @@
             border-bottom: 1px dashed var(--border-color);
             padding: 20px 0;
             transition: background-color 0.2s, border-left 0.2s, padding-left 0.2s;
+        }
+        
+        /* Fix: Ensures all items show by default when 'filter-all' is checked */
+        .project-list .project-item:not(.development),
+        #filter-all:checked ~ .project-list .project-item {
+            display: block;
         }
 
         .project-list .project-item:last-child {
@@ -283,9 +289,7 @@
         }
 
         /* CSS FILTER MAGIC */
-        #filter-all:checked ~ .project-list .project-item:not(.development) {
-            display: block;
-        }
+        /* Filter-all now handled above to ensure default visibility */
         #filter-webdev:checked ~ .project-list .webdev {
             display: block;
         }
@@ -305,7 +309,7 @@
             display: block;
         }
 
-        /* FOOTER */
+        /* FOOTER (FIXED ON DESKTOP) */
         footer {
             width: 100%;
             background: var(--card-bg);
@@ -314,7 +318,7 @@
             padding: 20px 0;
             font-size: 0.8em;
             border-top: 2px solid var(--border-color);
-            position: fixed; 
+            position: fixed; /* Keeps footer fixed on desktop by default */
             bottom: 0;
             left: 0;
             z-index: 10;
@@ -328,9 +332,13 @@
         /* ---------------------------------- */
         @media (max-width: 600px) {
             
-            /* Footer Optimization */
+            /* Mobile Fix: Footer scrolls on mobile only */
             footer {
-                position: static; /* Let the footer scroll off-screen on mobile */
+                position: static; 
+            }
+            /* Mobile Fix: Must re-add padding to body if footer becomes static */
+            body {
+                padding-bottom: 20px; 
             }
 
             header h1 { font-size: 2.5em; }
@@ -348,11 +356,11 @@
             
             /* Horizontal Scrolling Filter */
             .filter-tags-container {
-                overflow-x: scroll; /* Allows horizontal scrolling */
-                white-space: nowrap; /* Prevents tags from wrapping */
-                padding-bottom: 10px; /* Space for scroll bar */
+                overflow-x: scroll;
+                white-space: nowrap;
+                padding-bottom: 10px;
                 margin-bottom: 10px;
-                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+                -webkit-overflow-scrolling: touch;
             }
         }
     </style>
