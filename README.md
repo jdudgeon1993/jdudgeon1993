@@ -644,18 +644,19 @@
         </section>
 
     </main> <footer>
-        <div class="lighthouse-badges">
-            <span class="badge performance">🚀 100 Performance</span>
-            <span class="badge accessibility">♿ 100 Accessibility</span>
-            <span class="badge best-practices">✅ 100 Best Practices</span>
-            <span class="badge seo">🔎 91 SEO</span>
-        </div>
+        
         <div class="footer-content">
             <p>&copy; 2025 Jordan Dudgeon | All Rights Reserved.</p>
             <div class="footer-links">
                 <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="mailto:jdudgeon1993@gmail.com">jdudgeon1993@gmail.com</a>
             </div>
+            <div class="lighthouse-badges">
+            <span class="badge performance">🚀 100 Performance</span>
+            <span class="badge accessibility">♿ 100 Accessibility</span>
+            <span class="badge best-practices">✅ 100 Best Practices</span>
+            <span class="badge seo">🔎 91 SEO</span>
+        </div>
         </div>
     </footer>
 
