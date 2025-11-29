@@ -528,93 +528,81 @@
 
 
         <section id="projects">
-            <h3>Projects & Index</h3>
+    <h3>Projects & Index</h3>
 
-            <input type="radio" id="filter-all" name="skill-filter" class="skill-filter-input" checked>
-            <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
-            <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
-            <input type="radio" id="filter-integration" name="skill-filter" class="skill-filter-input">
-            <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
-            <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
-            <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
-            
-            <input type="checkbox" id="mobile-filter-toggle" class="skill-filter-input">
-            
-            <label for="mobile-filter-toggle" class="skill-tag mobile-toggle-button">Filter Projects ▼</label>
+    <input type="radio" id="filter-all" name="skill-filter" class="skill-filter-input" checked>
+    <input type="radio" id="filter-webdev" name="skill-filter" class="skill-filter-input">
+    <input type="radio" id="filter-analysis" name="skill-filter" class="skill-filter-input">
+    <input type="radio" id="filter-integration" name="skill-filter" class="skill-filter-input">
+    <input type="radio" id="filter-design" name="skill-filter" class="skill-filter-input">
+    <input type="radio" id="filter-freelance" name="skill-filter" class="skill-filter-input">
+    <input type="radio" id="filter-development" name="skill-filter" class="skill-filter-input">
+    
+    <input type="checkbox" id="mobile-filter-toggle" class="skill-filter-input">
+    
+    <label for="mobile-filter-toggle" class="skill-tag mobile-toggle-button">Filter Projects ▼</label>
 
 
-            <div class="filter-tags-container">
-                <label for="filter-all" class="skill-tag">Completed Work</label>
-                <label for="filter-webdev" class="skill-tag">Seamless UI/UX Development</label>
-                <label for="filter-analysis" class="skill-tag">Complexity Mapping & Analysis</label>
-                <label for="filter-integration" class="skill-tag">Efficient System Integration</label>
-                <label for="filter-design" class="skill-tag">Intuitive Design Systems</label>
-                <label for="filter-freelance" class="skill-tag">Client Solutions</label>
-                <label for="filter-development" class="skill-tag">In Development</label>
+    <div class="filter-tags-container">
+        <label for="filter-all" class="skill-tag">Completed Work</label>
+        <label for="filter-webdev" class="skill-tag">Seamless UI/UX Development</label>
+        <label for="filter-analysis" class="skill-tag">Complexity Mapping & Analysis</label>
+        <label for="filter-integration" class="skill-tag">Efficient System Integration</label>
+        <label for="filter-design" class="skill-tag">Intuitive Design Systems</label>
+        <label for="filter-freelance" class="skill-tag">Client Solutions</label>
+        <label for="filter-development" class="skill-tag">In Development</label>
+    </div>
+    
+    <div class="project-list" style="margin-top: 20px;">
+        
+        <div class="project-item webdev design">
+            <h4>Dynamic Themed Portfolio (Current Site)</h4>
+            <div class="project-tags-list">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS/SASS</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Design Systems</span>
             </div>
-            
-            <div class="project-list" style="margin-top: 20px;">
-                
-                <div class="project-item webdev design">
-                    <h4>Dynamic Themed Portfolio (Current Site)</h4>
-                    <div class="project-tags-list">
-                        <span class="project-tag">HTML</span>
-                        <span class="project-tag">CSS/SASS</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">Design Systems</span>
-                    </div>
-                    <p>
-                        Demonstrating mastery of clean CSS, this portfolio features **CSS-only filtering** and **thematic design systems** for immediate, low-latency UX.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://jdudgeon1993.github.io/jdudgeon1993/" target="_blank" rel="noopener">View Live</a>
-                        <a href="https://github.com/jdudgeon1993/jdudgeon1993" target="_blank" rel="noopener">Code</a>
-                    </div>
-                </div>
-
-                <div class="project-item analysis integration">
-                    <h4>Inter-Departmental Project Analysis</h4>
-                    <div class="project-tags-list">
-                        <span class="project-tag">Business Analysis</span>
-                        <span class="project-tag">System Integration</span>
-                        <span class="project-tag">Workflow Design</span>
-                    </div>
-                    <p>
-                        Comprehensive business analysis that delivered **actionable system integration** and resource recommendations, **reducing cross-departmental friction.**
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" target="_blank" rel="noopener">View Report</a>
-                    </div>
-                </div>
-
-                <div class="project-item webdev freelance">
-                    <h4>Business Card Website for CAD Designer</h4>
-                    <div class="project-tags-list">
-                        <span class="project-tag">HTML</span>
-                        <span class="project-tag">CSS</span>
-                        <span class="project-tag">Freelance</span>
-                    </div>
-                    <p>
-                        Delivered a high-speed, minimalist website optimized for a **CAD design client**, ensuring **maximum conversion** and lead capture efficiency.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://liveweave.com/6v2Mx2" target="_blank" rel="noopener">View Demo</a>
-                    </div>
-                </div>
-
-                <div class="project-item development">
-                    <h4>TBD Project</h4>
-                    <div class="project-tags-list">
-                        <span class="project-tag">IN DEVELOPMENT</span>
-                    </div>
-                    <p>The next great project. Stay tuned!</p>
-                    <div class="project-links">
-                        <a href="#" onclick="return false;">Link TBD</a>
-                    </div>
-                </div>
+            <p>
+                Demonstrating mastery of clean CSS, this portfolio features **CSS-only filtering** and **thematic design systems** for immediate, low-latency UX.
+            </p>
+            <div class="project-links">
+                <a href="https://jdudgeon1993.github.io/jdudgeon1993/" target="_blank" rel="noopener">View Live</a>
+                <a href="https://github.com/jdudgeon1993/jdudgeon1993" target="_blank" rel="noopener">Code</a>
             </div>
+        </div>
 
-        </section>
+        <div class="project-item webdev analysis integration freelance">
+            <h4>Workflow Optimization & Client Website Delivery</h4>
+            <div class="project-tags-list">
+                <span class="project-tag">Business Analysis</span>
+                <span class="project-tag">System Integration</span>
+                <span class="project-tag">Freelance</span>
+                <span class="project-tag">Minimalist UI</span>
+            </div>
+            <p>
+                A combined project involving comprehensive **business analysis to reduce cross-departmental friction** (View Report), followed by the design and **delivery of a high-speed, minimalist website** to optimize client lead conversion (View Demo).
+            </p>
+            <div class="project-links">
+                <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" target="_blank" rel="noopener">View Report (Analysis)</a>
+                <a href="https://liveweave.com/6v2Mx2" target="_blank" rel="noopener">View Demo (Website)</a>
+            </div>
+        </div>
+
+        <div class="project-item development">
+            <h4>TBD Project</h4>
+            <div class="project-tags-list">
+                <span class="project-tag">IN DEVELOPMENT</span>
+            </div>
+            <p>The next great project. Stay tuned!</p>
+            <div class="project-links">
+                <a href="#" onclick="return false;">Link TBD</a>
+            </div>
+        </div>
+        
+    </div>
+
+</section>
 
     </div>
 
