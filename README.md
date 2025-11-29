@@ -83,15 +83,15 @@
         }
         
         /* ---------------------------------- */
-        /* FLOATING METRICS SYSTEM */
+        /* FLOATING METRICS SYSTEM (DEFAULT: DESKTOP) */
         /* ---------------------------------- */
         .floating-metrics-container {
-            position: fixed;
-            bottom: 100px; /* Positions it above the fixed footer */
+            position: fixed; /* DEFAULT: Fixed position for desktop */
+            bottom: 100px; 
             right: 20px;
             z-index: 99; 
             display: flex;
-            align-items: flex-end; /* Align items to the bottom */
+            align-items: flex-end; /* Align button and badges to the bottom */
         }
         
         /* 1. Hide the checkbox input */
@@ -102,7 +102,7 @@
         /* 2. Floating Button Style (The clickable label) */
         .metrics-toggle-link.floating-button {
             cursor: pointer;
-            padding: 10px 10px; /* UPDATED */
+            padding: 10px 10px; 
             border-radius: 4px;
             background: var(--accent-color);
             color: white;
@@ -110,8 +110,8 @@
             font-weight: 700;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: background 0.2s, transform 0.2s;
-            line-height: .5; /* UPDATED */
-            z-index: 100; /* Ensure button is always above badges */
+            line-height: .5; 
+            z-index: 100; 
         }
         .metrics-toggle-link.floating-button:hover {
             background: var(--button-hover-bg);
@@ -128,10 +128,10 @@
 
         /* 3. LIGHTHOUSE BADGES (Hidden by Default) */
         .lighthouse-badges {
-            display: none; /* KEY: Hidden by default */
-            position: absolute;
-            right: 0; /* Align right edge of badge box with right edge of button */
-            bottom: calc(100% + 10px); /* KEY: Position above the button + 10px spacing */
+            display: none; 
+            position: absolute; /* DEFAULT: Absolute position for desktop */
+            right: 0; 
+            bottom: calc(100% + 10px); 
             
             padding: 10px;
             background-color: var(--card-bg); 
@@ -140,7 +140,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             
             /* Styles for when it is visible */
-            flex-direction: column; /* Stack badges vertically for a clean block */
+            flex-direction: column; 
             align-items: flex-end; /* Align badges to the right within the box */
         }
 
@@ -158,8 +158,8 @@
             color: white; 
             box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
             text-transform: uppercase;
-            margin: 4px 0; /* Vertical spacing between stacked badges */
-            white-space: nowrap; /* Prevent badges from wrapping */
+            margin: 4px 0; 
+            white-space: nowrap; 
         }
 
         /* Score-specific colors */
@@ -261,27 +261,44 @@
                 padding-bottom: 20px; 
             }
             
-            /* Mobile positioning for floating button */
+            /* KEY CHANGE: Turn Floating Metrics into a static, centered block */
             .floating-metrics-container {
-                bottom: 20px;
-                right: 10px;
+                position: static; /* No longer fixed */
+                margin: 30px auto; /* Centers the block horizontally in flow */
+                right: auto; /* Remove fixed right positioning */
+                bottom: auto; /* Remove fixed bottom positioning */
+                
+                /* Reconfigure flex to center its contents (button & badges) */
+                flex-direction: column-reverse; /* Put the button on the bottom, then the badges */
+                align-items: center; /* Center the button and badges horizontally */
+            }
+
+            /* KEY CHANGE: Make badges appear in static flow above the button */
+            .lighthouse-badges {
+                position: static; /* No longer absolute */
+                box-shadow: none; /* Make it look integrated, not floating */
+                right: auto; /* Remove absolute positioning */
+                bottom: auto; /* Remove absolute positioning */
+                margin-bottom: 15px; /* Spacing between badges and button */
+                
+                /* Adjust alignment for centering */
+                align-items: center; 
+                padding: 15px; 
+                width: 90%; 
+                max-width: 300px;
             }
             
-            /* Mobile badge appearance */
-            .lighthouse-badges {
-                /* Align the center of the badge box with the center of the button */
-                right: auto;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: calc(100% + 10px); 
-                
-                width: auto; 
-                min-width: 150px;
-                flex-direction: column; /* Keep stacked vertically */
-                align-items: center; /* Center badges within the floating box on mobile */
+            /* Mobile button refinements */
+            .metrics-toggle-link.floating-button {
+                width: 100%; /* Make the button take up the full width of the badge container's max-width for a block look */
+                max-width: 300px; 
+                text-align: center;
+                margin-top: 0;
             }
+            
+            /* Smaller badges for mobile density */
             .badge {
-                font-size: 0.65em;
+                font-size: 0.7em;
                 margin: 3px 0;
             }
             
@@ -699,10 +716,24 @@
                 </div>
                 
             </div>
-
         </section>
+        
+        <div class="floating-metrics-container">
+            <input type="checkbox" id="show-metrics-toggle">
 
-    </main> <footer>
+            <div class="lighthouse-badges">
+                <span class="badge performance">🚀 100 Performance</span>
+                <span class="badge accessibility">♿ 100 Accessibility</span>
+                <span class="badge best-practices">✅ 100 Best Practices</span>
+                <span class="badge seo">🔎 91 SEO</span>
+            </div>
+            
+            <label for="show-metrics-toggle" class="metrics-toggle-link floating-button"></label>
+        </div>
+
+    </main> 
+
+    <footer>
         <div class="footer-content">
             <p>&copy; 2025 Jordan Dudgeon | All Rights Reserved.</p>
             <div class="footer-links">
@@ -712,18 +743,6 @@
         </div>
     </footer>
 
-    <div class="floating-metrics-container">
-        <input type="checkbox" id="show-metrics-toggle">
-
-        <div class="lighthouse-badges">
-            <span class="badge performance">🚀 100 Performance</span>
-            <span class="badge accessibility">♿ 100 Accessibility</span>
-            <span class="badge best-practices">✅ 100 Best Practices</span>
-            <span class="badge seo">🔎 91 SEO</span>
-        </div>
-        
-        <label for="show-metrics-toggle" class="metrics-toggle-link floating-button"></label>
-    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
