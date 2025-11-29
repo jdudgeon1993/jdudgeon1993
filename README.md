@@ -169,7 +169,7 @@
         .seo { background-color: #ffab00; }
         
         /* ---------------------------------- */
-        /* HEADER / PROFILE (Unchanged) */
+        /* HEADER / PROFILE (Content Updated) */
         /* ---------------------------------- */
         header {
             padding: 30px 0;
@@ -404,7 +404,7 @@
             border: none;
         }
         
-        /* NEW WORKFLOW STYLES (Unchanged) */
+        /* NEW WORKFLOW STYLES (Content Updated) */
         #workflow {
             margin-bottom: 30px;
             padding: 30px;
@@ -458,7 +458,7 @@
             font-weight: 700;
         }
         
-        /* PROJECTS SECTION & CSS FILTER LOGIC (Unchanged) */
+        /* PROJECTS SECTION & CSS FILTER LOGIC (Content Updated) */
         #projects {
             margin-bottom: 30px;
             padding: 30px;
@@ -601,7 +601,7 @@
             <h2>Designing Seamless Experiences. Transforming Complexity.</h2> 
             
             <p class="profile-summary">
-                My focus is building intuitive, high-performance systems that **transform complex technical challenges into simple, efficient solutions** for both users and business operations.
+                My focus is building intuitive, high-performance systems that transform complex technical challenges into simple, efficient solutions for both users and business operations.
             </p>
             
             <div class="button-group">
@@ -615,24 +615,24 @@
         <section id="workflow">
             <h3>Deployment Workflow & Seamless Delivery 🚀</h3>
             <p style="margin-bottom: 25px;">
-                A clear, end-to-end process ensuring **optimal performance, maintainability, and seamless client alignment** for every deliverable.
+                A clear, end-to-end process ensuring optimal performance, maintainability, and seamless client alignment for every deliverable.
             </p>
             <ul class="workflow-list" style="counter-reset: step-counter;">
                 <li class="workflow-step">
                     <strong>Phase 1: Identify & Strategize</strong>
-                    User research, **complexity analysis**, and wireframing to establish the core, **intuitive** design system.
+                    User research, complexity analysis, and wireframing to establish the core, intuitive design system.
                 </li>
                 <li class="workflow-step">
                     <strong>Phase 2: Build & Test Efficiency</strong>
-                    Semantic code implementation with rigorous testing to ensure **high-performance** and highly **efficient solutions**.
+                    Semantic code implementation with rigorous testing to ensure high-performance and highly efficient solutions.
                 </li>
                 <li class="workflow-step">
                     <strong>Phase 3: Launch & Deliver</strong>
-                    Version control, asset optimization, and **seamless** deployment into the final production environment.
+                    Version control, asset optimization, and seamless deployment into the final production environment.
                 </li>
                 <li class="workflow-step">
                     <strong>Phase 4: Iterate & Optimize</strong>
-                    Continuous monitoring (Lighthouse) and iteration to maintain peak **performance** and the **simple, efficient user experience**.
+                    Continuous monitoring (Lighthouse) and iteration to maintain peak performance and the simple, efficient user experience.
                 </li>
             </ul>
         </section>
@@ -677,7 +677,7 @@
                         <span class="project-tag">Design Systems</span>
                     </div>
                     <p>
-                        **Live Demonstration of Scalability.** Built with modular CSS themes and CSS-only filtering for **instant, zero-latency UX** and future-proof design systems.
+                        Live demonstration of scalability. Built with modular CSS themes and CSS-only filtering for instant, zero-latency UX and future-proof design systems.
                     </p>
                     <div class="project-links">
                         <a href="https://jdudgeon1993.github.io/jdudgeon1993/" target="_blank" rel="noopener">View Live</a>
@@ -694,7 +694,7 @@
                         <span class="project-tag">Minimalist UI</span>
                     </div>
                     <p>
-                        **Complexity Transformed.** Conducted deep workflow analysis to **reduce departmental friction,** then delivered a high-speed, minimalist website that maximized client lead conversion.
+                        Complexity transformed. Conducted deep workflow analysis to reduce departmental friction, then delivered a high-speed, minimalist website that maximized client lead conversion.
                     </p>
                     <div class="project-links">
                         <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" target="_blank" rel="noopener">View Report (Analysis)</a>
@@ -708,7 +708,7 @@
                         <span class="project-tag">IN DEVELOPMENT</span>
                     </div>
                     <p>
-                        **In Development.** Focused on building a solution that demonstrates **full-stack technical efficiency** and superior user workflow design.
+                        In development. Focused on building a solution that demonstrates full-stack technical efficiency and superior user workflow design.
                     </p>
                     <div class="project-links">
                         <a href="#" onclick="return false;">Link TBD</a>
