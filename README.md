@@ -8,12 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Jordan Dudgeon – Portfolio</title>
     <style>
-        /* [Theme Definitions and Base Styles remain unchanged] */
-
-        /* ---------------------------------- */
-        /* THEME DEFINITIONS (CSS VARIABLES)  */
-        /* ---------------------------------- */
-
+        /* [CSS Styles are omitted for brevity, as only HTML content changed, but the full CSS from the last step is needed here.] */
+        /* ... All CSS definitions from the previous response should be here ... */
+        
         :root {
             --font-family-title: 'Playfair Display', serif;
             --font-family-body: 'Georgia', 'Times New Roman', serif;
@@ -22,12 +19,12 @@
 
         /* 1. CLASSIC JOURNAL (LIGHT/DEFAULT) */
         body[data-theme='journal'] {
-            --bg-color: #fcf8e8; /* Parchment/Cream */
-            --text-color: #3e382d; /* Dark Brown/Sepia */
-            --accent-color: #923a3a; /* Deep Burgundy/Ink */
-            --secondary-color: #4a5c68; /* Old Book Navy */
-            --border-color: #e0d9c6; /* Faded paper border */
-            --card-bg: #ffffff; /* White page */
+            --bg-color: #fcf8e8;
+            --text-color: #3e382d;
+            --accent-color: #923a3a;
+            --secondary-color: #4a5c68;
+            --border-color: #e0d9c6;
+            --card-bg: #ffffff;
             --button-bg: #4a5c68; 
             --button-hover-bg: #3a4b56;
             --tag-bg: #f0f0f0;
@@ -39,8 +36,8 @@
         body[data-theme='deep-sea'] {
             --bg-color: #1e2832; 
             --text-color: #e0f7fa; 
-            --accent-color: #26a69a; /* Teal/Mint */
-            --secondary-color: #ffb74d; /* Amber/Orange */
+            --accent-color: #26a69a;
+            --secondary-color: #ffb74d;
             --border-color: #37474f; 
             --card-bg: #263238; 
             --button-bg: #26a69a; 
@@ -54,8 +51,8 @@
         body[data-theme='midnight-crimson'] {
             --bg-color: #1a0a0a; 
             --text-color: #fce4ec; 
-            --accent-color: #e57373; /* Muted Red/Crimson */
-            --secondary-color: #ffeb3b; /* Gold/Yellow */
+            --accent-color: #e57373;
+            --secondary-color: #ffeb3b;
             --border-color: #420a0a; 
             --card-bg: #2b1010; 
             --button-bg: #e57373;
@@ -74,7 +71,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.7;
-            padding-bottom: 70px; /* Needed for fixed footer */
+            padding-bottom: 70px;
             transition: background-color 0.5s, color 0.5s;
         }
 
@@ -394,7 +391,7 @@
             padding: 20px 0;
             font-size: 0.8em;
             border-top: 2px solid var(--border-color);
-            position: fixed; /* Keeps footer fixed on desktop by default */
+            position: fixed;
             bottom: 0;
             left: 0;
             z-index: 10;
@@ -488,10 +485,11 @@
             </div>
             
             <h1>Jordan Dudgeon</h1>
-            <h2>Bridging Design, Development, and Process Optimization</h2>
+            <h2>Designing Seamless Experiences. Transforming Complexity.</h2> 
             
             <p class="profile-summary">
-                Designing seamless user experiences | Transforming complexity into simple, efficient solutions.</p>
+                My focus is building intuitive, high-performance systems that **transform complex technical challenges into simple, efficient solutions** for both users and business operations.
+            </p>
             
             <div class="button-group">
                 <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener" class="action-button">LinkedIn</a>
@@ -502,26 +500,26 @@
         <div class="ornamental-divider"></div>
         
         <section id="workflow">
-            <h3>Project Deployment Workflow 🚀</h3>
+            <h3>Deployment Workflow & Seamless Delivery 🚀</h3>
             <p style="margin-bottom: 25px;">
-                A clear, end-to-end process ensuring **optimal performance, maintainability, and client alignment** for every deliverable.
+                A clear, end-to-end process ensuring **optimal performance, maintainability, and seamless client alignment** for every deliverable.
             </p>
             <ul class="workflow-list" style="counter-reset: step-counter;">
                 <li class="workflow-step">
-                    <strong>Phase 1: Discovery & Design</strong>
-                    Process mapping, user research, wireframing, and creating a scalable design system (CSS variables).
+                    <strong>Phase 1: Discovery & Complexity Mapping</strong>
+                    User research, **complexity analysis**, wireframing, and creating the core design system for an **intuitive** interface.
                 </li>
                 <li class="workflow-step">
-                    <strong>Phase 2: Development & QA</strong>
-                    Clean, semantic code implementation. Rigorous testing (unit/integration/UAT) and cross-browser compatibility checks.
+                    <strong>Phase 2: Development & Efficiency QA</strong>
+                    Clean, semantic code implementation. Rigorous testing (unit/UAT) to ensure high-performance and **efficient solutions**.
                 </li>
                 <li class="workflow-step">
                     <strong>Phase 3: Deployment & Go-Live</strong>
-                    Version control finalization (Git), asset optimization, and deployment to the production environment (e.g., GitHub Pages).
+                    Version control finalization, asset optimization, and **seamless** deployment to the production environment.
                 </li>
                 <li class="workflow-step">
                     <strong>Phase 4: Optimization & Maintenance</strong>
-                    Performance monitoring (Lighthouse scores), SEO review, dependency updates, and continuous iteration based on feedback.
+                    Continuous performance monitoring and iteration to sustain the **simple, efficient user experience**.
                 </li>
             </ul>
         </section>
@@ -547,10 +545,10 @@
 
             <div class="filter-tags-container">
                 <label for="filter-all" class="skill-tag">Completed Work</label>
-                <label for="filter-webdev" class="skill-tag">Full-Stack UI/UX</label>
-                <label for="filter-analysis" class="skill-tag">Process Mapping & Analysis</label>
-                <label for="filter-integration" class="skill-tag">System & Data Integration</label>
-                <label for="filter-design" class="skill-tag">Scalable Design Systems</label>
+                <label for="filter-webdev" class="skill-tag">Seamless UI/UX Development</label>
+                <label for="filter-analysis" class="skill-tag">Complexity Mapping & Analysis</label>
+                <label for="filter-integration" class="skill-tag">Efficient System Integration</label>
+                <label for="filter-design" class="skill-tag">Intuitive Design Systems</label>
                 <label for="filter-freelance" class="skill-tag">Client Solutions</label>
                 <label for="filter-development" class="skill-tag">In Development</label>
             </div>
