@@ -491,8 +491,7 @@
             <h2>Bridging Design, Development, and Process Optimization</h2>
             
             <p class="profile-summary">
-                I build intuitive, performant interfaces and use technical analysis to **engineer better business workflows.**
-            </p>
+                Designing seamless user experiences | Transforming complexity into simple, efficient solutions.</p>
             
             <div class="button-group">
                 <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener" class="action-button">LinkedIn</a>
