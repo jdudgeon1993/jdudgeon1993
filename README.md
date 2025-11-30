@@ -10,7 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Jordan Dudgeon – Portfolio</title>
     <style>
-        /* [CSS Variables remain unchanged] */
+        /* ---------------------------------- */
+        /* CSS THEME VARIABLES (10 Total Themes) */
+        /* ---------------------------------- */
         :root {
             --font-family-title: 'Playfair Display', serif;
             --font-family-body: 'Georgia', 'Times New Roman', serif;
@@ -21,8 +23,8 @@
         body[data-theme='journal'] {
             --bg-color: #fcf8e8;
             --text-color: #3e382d;
-            --accent-color: #923a3a;
-            --secondary-color: #4a5c68;
+            --accent-color: #923a3a; /* Deep Red */
+            --secondary-color: #4a5c68; /* Slate Blue */
             --border-color: #e0d9c6;
             --card-bg: #ffffff;
             --button-bg: #4a5c68; 
@@ -36,8 +38,8 @@
         body[data-theme='deep-sea'] {
             --bg-color: #1e2832; 
             --text-color: #e0f7fa; 
-            --accent-color: #26a69a;
-            --secondary-color: #ffb74d;
+            --accent-color: #26a69a; /* Teal */
+            --secondary-color: #ffb74d; /* Light Orange */
             --border-color: #37474f; 
             --card-bg: #263238; 
             --button-bg: #26a69a; 
@@ -51,14 +53,119 @@
         body[data-theme='midnight-crimson'] {
             --bg-color: #1a0a0a; 
             --text-color: #fce4ec; 
-            --accent-color: #e57373;
-            --secondary-color: #ffeb3b;
+            --accent-color: #e57373; /* Light Red */
+            --secondary-color: #ffeb3b; /* Bright Yellow */
             --border-color: #420a0a; 
             --card-bg: #2b1010; 
             --button-bg: #e57373;
             --button-hover-bg: #d32f2f;
             --tag-bg: #420a0a;
             --tag-color: #fce4ec;
+            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
+        }
+        
+        /* 4. FOREST DUSK (DARK/EARTHY) */
+        body[data-theme='forest-dusk'] {
+            --bg-color: #2C3E2D; 
+            --text-color: #E8EACF; 
+            --accent-color: #F5B73F; /* Gold */
+            --secondary-color: #5D8C7A; /* Muted Teal */
+            --border-color: #4D645D; 
+            --card-bg: #394C3A; 
+            --button-bg: #5D8C7A; 
+            --button-hover-bg: #4A7A68;
+            --tag-bg: #4D645D;
+            --tag-color: #E8EACF;
+            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
+        }
+        
+        /* 5. HIGH CONTRAST (DARK/ACCESSIBLE) */
+        body[data-theme='high-contrast'] {
+            --bg-color: #000000; 
+            --text-color: #FFFFFF; 
+            --accent-color: #00FFFF; /* Bright Cyan */
+            --secondary-color: #FF00FF; /* Bright Magenta */
+            --border-color: #222222; 
+            --card-bg: #111111; 
+            --button-bg: #FF00FF; 
+            --button-hover-bg: #CC00CC;
+            --tag-bg: #222222;
+            --tag-color: #FFFFFF;
+            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
+        }
+        
+        /* 6. SOLAR FLARE (LIGHT/BOLD) */
+        body[data-theme='solar-flare'] {
+            --bg-color: #FFFFFF; 
+            --text-color: #1A1A1A; 
+            --accent-color: #FF4500; /* Orange Red */
+            --secondary-color: #0047AB; /* Cobalt Blue */
+            --border-color: #EEEEEE; 
+            --card-bg: #F8F8F8; 
+            --button-bg: #FF4500; 
+            --button-hover-bg: #D43800;
+            --tag-bg: #EEEEEE;
+            --tag-color: var(--secondary-color);
+            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
+        }
+
+        /* 7. PURPLE HAZE (DARK/NEON) */
+        body[data-theme='purple-haze'] {
+            --bg-color: #201A33; 
+            --text-color: #E0E0FF; 
+            --accent-color: #D83A56; /* Crimson Red */
+            --secondary-color: #8E44AD; /* Purple */
+            --border-color: #352C4D; 
+            --card-bg: #2D2543; 
+            --button-bg: #D83A56; 
+            --button-hover-bg: #B52F47;
+            --tag-bg: #352C4D;
+            --tag-color: #E0E0FF;
+            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
+        }
+        
+        /* 8. MINIMALIST BLUE (LIGHT/PROFESSIONAL) */
+        body[data-theme='minimalist-blue'] {
+            --bg-color: #F7F7F7; 
+            --text-color: #333333; 
+            --accent-color: #4A90E2; /* Bright Blue */
+            --secondary-color: #005694; /* Navy */
+            --border-color: #DDDDDD; 
+            --card-bg: #FFFFFF; 
+            --button-bg: #005694; 
+            --button-hover-bg: #004070;
+            --tag-bg: #EEEEEE;
+            --tag-color: var(--secondary-color);
+            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
+        }
+
+        /* 9. RETRO TERMINAL (DARK/GREEN MONO) */
+        body[data-theme='retro-terminal'] {
+            --bg-color: #002B36; 
+            --text-color: #839496; 
+            --accent-color: #586E75; /* Dark Cyan */
+            --secondary-color: #859900; /* Green */
+            --border-color: #073642; 
+            --card-bg: #003643; 
+            --button-bg: #859900; 
+            --button-hover-bg: #687A00;
+            --tag-bg: #073642;
+            --tag-color: #839496;
+            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
+        }
+        
+        /* 10. COPPER CANYON (DARK/WARM BROWN) */
+        body[data-theme='copper-canyon'] {
+            --bg-color: #5F453B; 
+            --text-color: #FAEBD7; 
+            --accent-color: #D47754; /* Copper */
+            --secondary-color: #A0522D; /* Sienna */
+            --border-color: #8B4513; 
+            --card-bg: #6B4F44; 
+            --button-bg: #A0522D; 
+            --button-hover-bg: #8B4513;
+            --tag-bg: #8B4513;
+            --tag-color: #FAEBD7;
             --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
         }
 
@@ -86,20 +193,18 @@
         /* FLOATING METRICS SYSTEM (DEFAULT: DESKTOP) */
         /* ---------------------------------- */
         .floating-metrics-container {
-            position: fixed; /* DEFAULT: Fixed position for desktop */
+            position: fixed;
             bottom: 100px; 
             right: 20px;
             z-index: 99; 
             display: flex;
-            align-items: flex-end; /* Align button and badges to the bottom */
+            align-items: flex-end;
         }
         
-        /* 1. Hide the checkbox input */
         #show-metrics-toggle {
             display: none;
         }
         
-        /* 2. Floating Button Style (The clickable label) */
         .metrics-toggle-link.floating-button {
             cursor: pointer;
             padding: 10px 10px; 
@@ -117,39 +222,31 @@
             background: var(--button-hover-bg);
             transform: scale(1.05);
         }
-        /* Default text for the floating button */
         .metrics-toggle-link.floating-button::after {
             content: "📊 METRICS";
         }
-        /* Text when checked */
         #show-metrics-toggle:checked ~ .metrics-toggle-link.floating-button::after {
             content: "❌ CLOSE";
         }
 
-        /* 3. LIGHTHOUSE BADGES (Hidden by Default) */
         .lighthouse-badges {
             display: none; 
-            position: absolute; /* DEFAULT: Absolute position for desktop */
+            position: absolute;
             right: 0; 
             bottom: calc(100% + 10px); 
-            
             padding: 10px;
             background-color: var(--card-bg); 
             border: 1px solid var(--border-color);
             border-radius: 4px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            
-            /* Styles for when it is visible */
             flex-direction: column; 
-            align-items: flex-end; /* Align badges to the right within the box */
+            align-items: flex-end;
         }
 
-        /* 4. KEY: Reveal the badges when the checkbox is checked */
         #show-metrics-toggle:checked ~ .lighthouse-badges {
             display: flex; 
         }
 
-        /* Badge component styling */
         .badge {
             padding: 5px 10px; 
             border-radius: 2px;
@@ -162,14 +259,13 @@
             white-space: nowrap; 
         }
 
-        /* Score-specific colors */
         .performance { background-color: #00c853; }
         .accessibility { background-color: #00c853; }
         .best-practices { background-color: #00c853; }
         .seo { background-color: #ffab00; }
         
         /* ---------------------------------- */
-        /* HEADER / PROFILE (Content Updated) */
+        /* HEADER / PROFILE */
         /* ---------------------------------- */
         header {
             padding: 30px 0;
@@ -187,22 +283,19 @@
             font-family: var(--font-family-title);
         }
         
-        /* NEW: Style the central statement block */
         .statement-purpose {
             max-width: 650px; 
             margin: 20px auto;
             padding: 25px 35px;
-            background-color: var(--card-bg); /* Use the card background for contrast */
-            border: 3px double var(--accent-color); /* Strong ornamental border */
+            background-color: var(--card-bg);
+            border: 3px double var(--accent-color);
             border-radius: 4px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
-        /* h2 style within the new statement block */
         .statement-purpose h2 {
             font-size: 1.2em;
             color: var(--secondary-color);
-            /* NEW: Adjusted line height for readability with two lines */
             line-height: 1.4; 
             margin: 0 auto 10px auto; 
             font-weight: 400;
@@ -210,13 +303,12 @@
             letter-spacing: 0.1em;
         }
         
-        /* profile-summary style within the new statement block */
         .statement-purpose .profile-summary {
             max-width: 100%;
             margin: 10px auto 0 auto;
             color: var(--text-color); 
-            font-style: normal; /* Removed italic */
-            font-weight: 700; /* Added bold */
+            font-style: normal;
+            font-weight: 700;
             font-size: 1.1em;
         }
 
@@ -240,7 +332,7 @@
         }
 
         /* ---------------------------------- */
-        /* FOOTER (Unchanged, just cleaner) */
+        /* FOOTER */
         /* ---------------------------------- */
         footer {
             width: 100%;
@@ -267,64 +359,44 @@
         /* ---------------------------------- */
         @media (max-width: 600px) {
             
-            /* Footer scrolls on mobile only */
+            /* Mobile Footer */
             footer {
                 position: static; 
                 padding: 10px 0; 
-            }
-            .footer-content {
-                padding: 5px 0;
             }
             body {
                 padding-bottom: 20px; 
             }
             
-            /* FIX: Ensure no horizontal scroll on header */
+            /* Header */
             header {
-                padding: 30px 0;
-                margin-bottom: 30px;
-                text-align: center;
-                border-bottom: 2px solid var(--accent-color);
-                position: relative;
                 overflow-x: hidden; 
             }
             
-            /* KEY CHANGE: Turn Floating Metrics into a static, centered block */
+            /* Floating Metrics to Static Block */
             .floating-metrics-container {
-                position: static; /* No longer fixed */
-                margin: 30px auto; /* Centers the block horizontally in flow */
-                right: auto; /* Remove fixed right positioning */
-                bottom: auto; /* Remove fixed bottom positioning */
-                
-                /* Reconfigure flex to center its contents (button & badges) */
-                flex-direction: column-reverse; /* Put the button on the bottom, then the badges */
-                align-items: center; /* Center the button and badges horizontally */
+                position: static; 
+                margin: 30px auto;
+                flex-direction: column-reverse;
+                align-items: center;
             }
 
-            /* KEY CHANGE: Make badges appear in static flow above the button */
             .lighthouse-badges {
-                position: static; /* No longer absolute */
-                box-shadow: none; /* Make it look integrated, not floating */
-                right: auto; /* Remove absolute positioning */
-                bottom: auto; /* Remove absolute positioning */
-                margin-bottom: 15px; /* Spacing between badges and button */
-                
-                /* Adjust alignment for centering */
+                position: static; 
+                box-shadow: none;
+                margin-bottom: 15px;
                 align-items: center; 
                 padding: 15px; 
                 width: 90%; 
                 max-width: 300px;
             }
             
-            /* Mobile button refinements */
             .metrics-toggle-link.floating-button {
-                width: 100%; /* Make the button take up the full width of the badge container's max-width for a block look */
+                width: 100%;
                 max-width: 300px; 
                 text-align: center;
-                margin-top: 0;
             }
             
-            /* Smaller badges for mobile density */
             .badge {
                 font-size: 0.7em;
                 margin: 3px 0;
@@ -332,21 +404,22 @@
             
             header h1 { font-size: 2.5em; }
             
+            /* HEADLINE FIX */
             header h2 { 
                 font-size: 1em; 
                 line-height: 1.5; 
-                /* NEW: Significantly reduce letter spacing on mobile for narrow screens to fit text */
+                /* Reduced letter spacing and word break to prevent overflow */
                 letter-spacing: 0.05em; 
-                /* NEW: Ensures long words break to prevent horizontal overflow */
                 word-break: break-word; 
             }
             .statement-purpose {
                 padding: 15px 20px;
                 margin: 15px auto;
                 border: 2px solid var(--accent-color);
-                /* Ensure the content is strictly contained within this box */
                 overflow: hidden; 
             }
+            
+            /* Other mobile layout adjustments */
             .action-button {
                 display: block;
                 width: 90%;
@@ -357,12 +430,10 @@
                 justify-content: center;
                 margin-top: 15px;
             }
-            /* Workflow List mobile stack */
             .workflow-list {
                 flex-direction: column;
                 gap: 15px;
             }
-            /* CSS-ONLY FILTER TOGGLE LOGIC (for Projects) */
             .mobile-toggle-button {
                 display: block;
                 width: 100%;
@@ -400,7 +471,7 @@
             }
         }
         /* ---------------------------------- */
-        /* BUTTONS & LINKS (Unchanged for brevity, but retained in final code) */
+        /* BUTTONS, LINKS, ETC. (Unchanged for brevity) */
         /* ---------------------------------- */
         a {
             color: var(--accent-color);
@@ -447,7 +518,7 @@
             border: none;
         }
         
-        /* NEW WORKFLOW STYLES (Content Updated) */
+        /* WORKFLOW SECTION */
         #workflow {
             margin-bottom: 30px;
             padding: 30px;
@@ -501,7 +572,7 @@
             font-weight: 700;
         }
         
-        /* PROJECTS SECTION & CSS FILTER LOGIC (Content Updated) */
+        /* PROJECTS SECTION & CSS FILTER LOGIC */
         #projects {
             margin-bottom: 30px;
             padding: 30px;
@@ -637,6 +708,13 @@
                     <option value="journal">Classic Journal</option>
                     <option value="deep-sea">Deep Sea Coder</option>
                     <option value="midnight-crimson">Midnight Crimson</option>
+                    <option value="forest-dusk">Forest Dusk</option>
+                    <option value="high-contrast">High Contrast</option>
+                    <option value="solar-flare">Solar Flare</option>
+                    <option value="purple-haze">Purple Haze</option>
+                    <option value="minimalist-blue">Minimalist Blue</option>
+                    <option value="retro-terminal">Retro Terminal</option>
+                    <option value="copper-canyon">Copper Canyon</option>
                 </select>
             </div>
             
