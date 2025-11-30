@@ -879,7 +879,7 @@
                 body.setAttribute('data-theme', storedTheme);
                 themeSwitcher.value = storedTheme;
             } else {
-                // If no theme is stored, default to 'journal' and set the attribute
+                // If no theme is stored, default to 'journal' (as per the body attribute)
                 body.setAttribute('data-theme', 'journal');
                 themeSwitcher.value = 'journal';
             }
