@@ -435,16 +435,7 @@
                 gap: 15px;
             }
             .mobile-toggle-button {
-                display: block;
-                width: 100%;
-                text-align: center;
-                margin: 0 0 15px 0;
-                padding: 10px 0;
-                background: var(--secondary-color);
-                color: white;
-                font-weight: 700;
-                cursor: pointer;
-                border: 1px solid var(--secondary-color);
+                display: none;
             }
 
             .filter-tags-container {
@@ -468,6 +459,19 @@
             
             #mobile-filter-toggle:checked ~ .mobile-toggle-button {
                 background: var(--accent-color);
+            }
+            /* MOBILE TOGGLE BUTTON STYLES FOR REVEAL */
+            .mobile-toggle-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin: 0 0 15px 0;
+                padding: 10px 0;
+                background: var(--secondary-color);
+                color: white;
+                font-weight: 700;
+                cursor: pointer;
+                border: 1px solid var(--secondary-color);
             }
         }
         /* ---------------------------------- */
@@ -609,10 +613,6 @@
             transition: background 0.2s, color 0.2s, transform 0.1s;
         }
         
-        .mobile-toggle-button {
-            display: none;
-        }
-
         .skill-filter-input + .filter-tags-container > label.skill-tag {
             background: var(--tag-bg); 
             color: var(--tag-color);
@@ -821,7 +821,7 @@
                     </p>
                     <div class="project-links">
                         <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" target="_blank" rel="noopener">View Report (Analysis)</a>
-                        <a href="https://liveweave.com/6v2Mx2" target="_blank" rel="noopener">View Demo (Website)</a>
+                        <a href="https://jdudgeon1993.github.io/Project_HR_Portfolio/#" target="_blank" rel="noopener">View Demo (Website)</a>
                     </div>
                 </div>
 
