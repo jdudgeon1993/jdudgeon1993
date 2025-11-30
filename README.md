@@ -17,16 +17,14 @@
             --font-family-title: 'Playfair Display', serif;
             --font-family-body: 'Georgia', 'Times New Roman', serif;
             --container-max-width: 800px;
-            /* Default fallback container background */
-            --container-bg: transparent; 
         }
 
         /* 1. CLASSIC JOURNAL (LIGHT/DEFAULT) */
         body[data-theme='journal'] {
             --bg-color: #fcf8e8;
             --text-color: #3e382d;
-            --accent-color: #923a3a; /* Deep Red */
-            --secondary-color: #4a5c68; /* Slate Blue */
+            --accent-color: #923a3a;
+            --secondary-color: #4a5c68;
             --border-color: #e0d9c6;
             --card-bg: #ffffff;
             --button-bg: #4a5c68; 
@@ -40,8 +38,8 @@
         body[data-theme='deep-sea'] {
             --bg-color: #1e2832; 
             --text-color: #e0f7fa; 
-            --accent-color: #26a69a; /* Teal */
-            --secondary-color: #ffb74d; /* Light Orange */
+            --accent-color: #26a69a;
+            --secondary-color: #ffb74d;
             --border-color: #37474f; 
             --card-bg: #263238; 
             --button-bg: #26a69a; 
@@ -55,8 +53,8 @@
         body[data-theme='midnight-crimson'] {
             --bg-color: #1a0a0a; 
             --text-color: #fce4ec; 
-            --accent-color: #e57373; /* Light Red */
-            --secondary-color: #ffeb3b; /* Bright Yellow */
+            --accent-color: #e57373;
+            --secondary-color: #ffeb3b;
             --border-color: #420a0a; 
             --card-bg: #2b1010; 
             --button-bg: #e57373;
@@ -70,8 +68,8 @@
         body[data-theme='forest-dusk'] {
             --bg-color: #2C3E2D; 
             --text-color: #E8EACF; 
-            --accent-color: #F5B73F; /* Gold */
-            --secondary-color: #5D8C7A; /* Muted Teal */
+            --accent-color: #F5B73F;
+            --secondary-color: #5D8C7A;
             --border-color: #4D645D; 
             --card-bg: #394C3A; 
             --button-bg: #5D8C7A; 
@@ -85,8 +83,8 @@
         body[data-theme='high-contrast'] {
             --bg-color: #000000; 
             --text-color: #FFFFFF; 
-            --accent-color: #00FFFF; /* Bright Cyan */
-            --secondary-color: #FF00FF; /* Bright Magenta */
+            --accent-color: #00FFFF;
+            --secondary-color: #FF00FF;
             --border-color: #222222; 
             --card-bg: #111111; 
             --button-bg: #FF00FF; 
@@ -100,8 +98,8 @@
         body[data-theme='solar-flare'] {
             --bg-color: #FFFFFF; 
             --text-color: #1A1A1A; 
-            --accent-color: #FF4500; /* Orange Red */
-            --secondary-color: #0047AB; /* Cobalt Blue */
+            --accent-color: #FF4500;
+            --secondary-color: #0047AB;
             --border-color: #EEEEEE; 
             --card-bg: #F8F8F8; 
             --button-bg: #FF4500; 
@@ -115,8 +113,8 @@
         body[data-theme='purple-haze'] {
             --bg-color: #201A33; 
             --text-color: #E0E0FF; 
-            --accent-color: #D83A56; /* Crimson Red */
-            --secondary-color: #8E44AD; /* Purple */
+            --accent-color: #D83A56;
+            --secondary-color: #8E44AD;
             --border-color: #352C4D; 
             --card-bg: #2D2543; 
             --button-bg: #D83A56; 
@@ -130,8 +128,8 @@
         body[data-theme='minimalist-blue'] {
             --bg-color: #F7F7F7; 
             --text-color: #333333; 
-            --accent-color: #4A90E2; /* Bright Blue */
-            --secondary-color: #005694; /* Navy */
+            --accent-color: #4A90E2;
+            --secondary-color: #005694;
             --border-color: #DDDDDD; 
             --card-bg: #FFFFFF; 
             --button-bg: #005694; 
@@ -145,8 +143,8 @@
         body[data-theme='retro-terminal'] {
             --bg-color: #002B36; 
             --text-color: #839496; 
-            --accent-color: #586E75; /* Dark Cyan */
-            --secondary-color: #859900; /* Green */
+            --accent-color: #586E75;
+            --secondary-color: #859900;
             --border-color: #073642; 
             --card-bg: #003643; 
             --button-bg: #859900; 
@@ -160,8 +158,8 @@
         body[data-theme='copper-canyon'] {
             --bg-color: #5F453B; 
             --text-color: #FAEBD7; 
-            --accent-color: #D47754; /* Copper */
-            --secondary-color: #A0522D; /* Sienna */
+            --accent-color: #D47754;
+            --secondary-color: #A0522D;
             --border-color: #8B4513; 
             --card-bg: #6B4F44; 
             --button-bg: #A0522D; 
@@ -189,8 +187,6 @@
             max-width: var(--container-max-width);
             margin: 0 auto;
             padding: 40px 0;
-            background-color: var(--container-bg);
-            border-radius: 8px;
         }
         
         /* ---------------------------------- */
@@ -209,6 +205,7 @@
             display: none;
         }
         
+        /* The floating toggle button */
         .metrics-toggle-link.floating-button {
             cursor: pointer;
             padding: 10px 10px; 
@@ -233,6 +230,7 @@
             content: "❌ CLOSE";
         }
 
+        /* The metric badges container */
         .lighthouse-badges {
             display: none; 
             position: absolute;
@@ -315,7 +313,7 @@
             font-weight: 700;
             font-size: 1.1em;
         }
-        
+
         /* THEME SWITCHER STYLES */
         .theme-switcher-container {
             position: absolute;
@@ -439,7 +437,16 @@
                 gap: 15px;
             }
             .mobile-toggle-button {
-                display: none;
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin: 0 0 15px 0;
+                padding: 10px 0;
+                background: var(--secondary-color);
+                color: white;
+                font-weight: 700;
+                cursor: pointer;
+                border: 1px solid var(--secondary-color);
             }
 
             .filter-tags-container {
@@ -464,22 +471,9 @@
             #mobile-filter-toggle:checked ~ .mobile-toggle-button {
                 background: var(--accent-color);
             }
-            /* MOBILE TOGGLE BUTTON STYLES FOR REVEAL */
-            .mobile-toggle-button {
-                display: block;
-                width: 100%;
-                text-align: center;
-                margin: 0 0 15px 0;
-                padding: 10px 0;
-                background: var(--secondary-color);
-                color: white;
-                font-weight: 700;
-                cursor: pointer;
-                border: 1px solid var(--secondary-color);
-            }
         }
         /* ---------------------------------- */
-        /* BUTTONS, LINKS, ETC. (Unchanged for brevity) */
+        /* BUTTONS, LINKS, ETC. */
         /* ---------------------------------- */
         a {
             color: var(--accent-color);
@@ -533,7 +527,6 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-radius: 4px;
         }
         #workflow h3 {
             font-size: 1.8em;
@@ -554,7 +547,6 @@
         }
         .workflow-step {
             flex: 1 1 200px;
-            /* Simplified styling */
             border-left: 2px solid var(--accent-color); 
             padding-left: 15px;
             position: relative;
@@ -573,7 +565,6 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-radius: 4px;
         }
         #projects h3 {
             font-size: 1.8em;
@@ -584,7 +575,6 @@
             margin-bottom: 25px;
             font-family: var(--font-family-title);
         }
-        
         
         .skill-filter-input {
             display: none;
@@ -871,10 +861,9 @@
                 body.setAttribute('data-theme', storedTheme);
                 themeSwitcher.value = storedTheme;
             } else {
-                // Default back to 'journal' theme
-                const defaultTheme = 'journal';
-                body.setAttribute('data-theme', defaultTheme);
-                themeSwitcher.value = defaultTheme;
+                // If no theme is stored, default to 'journal' (as per the body attribute)
+                body.setAttribute('data-theme', 'journal');
+                themeSwitcher.value = 'journal';
             }
 
             // 2. Handle theme change on dropdown selection
