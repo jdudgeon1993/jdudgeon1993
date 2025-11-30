@@ -11,7 +11,7 @@
     <title>Jordan Dudgeon – Portfolio</title>
     <style>
         /* ---------------------------------- */
-        /* CSS THEME VARIABLES (12 Total Themes) */
+        /* CSS THEME VARIABLES (10 Total Themes) */
         /* ---------------------------------- */
         :root {
             --font-family-title: 'Playfair Display', serif;
@@ -170,41 +170,6 @@
             --tag-color: #FAEBD7;
             --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
         }
-        
-        /* 11. LAYERED INTERFACE (VISUAL CONCEPT #2) */
-        body[data-theme='layered-interface'] {
-            --bg-color: #0A0A0A; /* Very dark background */
-            --text-color: #E0E0E0;
-            --accent-color: #00FFFF; /* Bright Cyan (Neon) */
-            --secondary-color: #FF00FF; /* Bright Magenta */
-            --border-color: #222222; 
-            --card-bg: rgba(20, 20, 20, 0.7); /* Transparent card background */
-            --container-bg: rgba(15, 15, 15, 0.6); /* Transparent container background */
-            --button-bg: #FF00FF; 
-            --button-hover-bg: #CC00CC;
-            --tag-bg: #222222;
-            --tag-color: #E0E0E0;
-            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
-            /* Background texture to show the blur effect clearly */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23111111' fill-opacity='0.3'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
-        }
-        
-        /* ---------------------------------- */
-        /* 12. SPLIT SCREEN (VISUAL CONCEPT #3) */
-        /* ---------------------------------- */
-        body[data-theme='split-screen'] {
-            --bg-color: #F7F7F7; 
-            --text-color: #333333; 
-            --accent-color: #D9534F; /* Coral Red - a different accent */
-            --secondary-color: #2C3E50; /* Darker Navy */
-            --border-color: #DDDDDD; 
-            --card-bg: #FFFFFF; 
-            --button-bg: #2C3E50; 
-            --button-hover-bg: #1A2733;
-            --tag-bg: #EEEEEE;
-            --tag-color: var(--secondary-color);
-            --ornamental-line: linear-gradient(to right, var(--accent-color) 0%, var(--border-color) 50%, var(--accent-color) 100%);
-        }
 
         /* ---------------------------------- */
         /* BASE STYLES */
@@ -224,10 +189,84 @@
             max-width: var(--container-max-width);
             margin: 0 auto;
             padding: 40px 0;
-            /* Allow the layered theme to set a background color here */
             background-color: var(--container-bg);
-            border-radius: 8px; /* Added for the layered look */
+            border-radius: 8px;
         }
+        
+        /* ---------------------------------- */
+        /* FLOATING METRICS SYSTEM (DEFAULT: DESKTOP) */
+        /* ---------------------------------- */
+        .floating-metrics-container {
+            position: fixed;
+            bottom: 100px; 
+            right: 20px;
+            z-index: 99; 
+            display: flex;
+            align-items: flex-end;
+        }
+        
+        #show-metrics-toggle {
+            display: none;
+        }
+        
+        .metrics-toggle-link.floating-button {
+            cursor: pointer;
+            padding: 10px 10px; 
+            border-radius: 4px;
+            background: var(--accent-color);
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background 0.2s, transform 0.2s;
+            line-height: .5; 
+            z-index: 100; 
+        }
+        .metrics-toggle-link.floating-button:hover {
+            background: var(--button-hover-bg);
+            transform: scale(1.05);
+        }
+        .metrics-toggle-link.floating-button::after {
+            content: "📊 METRICS";
+        }
+        #show-metrics-toggle:checked ~ .metrics-toggle-link.floating-button::after {
+            content: "❌ CLOSE";
+        }
+
+        .lighthouse-badges {
+            display: none; 
+            position: absolute;
+            right: 0; 
+            bottom: calc(100% + 10px); 
+            padding: 10px;
+            background-color: var(--card-bg); 
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            flex-direction: column; 
+            align-items: flex-end;
+        }
+
+        #show-metrics-toggle:checked ~ .lighthouse-badges {
+            display: flex; 
+        }
+
+        .badge {
+            padding: 5px 10px; 
+            border-radius: 2px;
+            font-weight: 700;
+            font-size: 0.8em; 
+            color: white; 
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            margin: 4px 0; 
+            white-space: nowrap; 
+        }
+
+        .performance { background-color: #00c853; }
+        .accessibility { background-color: #00c853; }
+        .best-practices { background-color: #00c853; }
+        .seo { background-color: #ffab00; }
         
         /* ---------------------------------- */
         /* HEADER / PROFILE */
@@ -239,12 +278,6 @@
             border-bottom: 2px solid var(--accent-color);
             position: relative;
         }
-        /* New wrapper for the split view */
-        .header-content-wrapper {
-            /* Default: single column layout */
-            display: block; 
-        }
-        
         header h1 {
             font-size: 3em;
             color: var(--accent-color);
@@ -281,55 +314,6 @@
             font-style: normal;
             font-weight: 700;
             font-size: 1.1em;
-        }
-
-        /* ---------------------------------- */
-        /* SPLIT-SCREEN SPECIFIC STYLES (Desktop) */
-        /* ---------------------------------- */
-        @media (min-width: 768px) {
-            body[data-theme='split-screen'] header {
-                text-align: left; /* Change alignment from center */
-                padding-bottom: 0; /* Remove bottom padding from original header */
-                border-bottom: none;
-                margin-bottom: 20px;
-            }
-            body[data-theme='split-screen'] .header-content-wrapper {
-                display: grid;
-                grid-template-columns: 2fr 1fr; /* Two-thirds for text, one-third for buttons */
-                gap: 40px;
-                align-items: center;
-                padding-bottom: 30px;
-                border-bottom: 2px solid var(--accent-color); /* Move border down */
-            }
-            body[data-theme='split-screen'] .header-left h1 {
-                font-size: 3.5em; /* Make the name stand out more */
-            }
-            body[data-theme='split-screen'] .header-right {
-                /* Subtle background color for the button panel */
-                background-color: color-mix(in srgb, var(--bg-color) 85%, var(--border-color)); 
-                padding: 25px 20px;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                border-left: 3px solid var(--accent-color); /* The visual "split" line */
-                border-radius: 4px;
-                box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            }
-            body[data-theme='split-screen'] .statement-purpose {
-                margin: 20px 0; /* Remove auto centering margin */
-                max-width: none;
-                border: 1px solid var(--border-color); /* Lighter border */
-            }
-            body[data-theme='split-screen'] .action-button {
-                margin: 10px 0; /* Stack buttons vertically in the split panel */
-                display: block;
-                width: 100%;
-            }
-            body[data-theme='split-screen'] .button-group {
-                width: 100%;
-            }
         }
         
         /* THEME SWITCHER STYLES */
@@ -707,14 +691,12 @@
         
     </style>
 </head>
-<body data-theme="split-screen">
+<body data-theme="journal">
     <main class="container"> 
         <header>
             <div class="theme-switcher-container">
                 <label for="theme-switcher">Theme:</label>
                 <select id="theme-switcher">
-                    <option value="split-screen">Split Screen</option>
-                    <option value="layered-interface">Layered Interface</option>
                     <option value="journal">Classic Journal</option>
                     <option value="deep-sea">Deep Sea Coder</option>
                     <option value="midnight-crimson">Midnight Crimson</option>
@@ -728,26 +710,20 @@
                 </select>
             </div>
             
-            <div class="header-content-wrapper">
-                <div class="header-left">
-                    <h1>Jordan Dudgeon</h1>
-                    
-                    <div class="statement-purpose">
-                        <h2>Designing Seamless Experiences.<br>Transforming Complexity.</h2> 
-                        <p class="profile-summary">
-                            My focus is building intuitive, high-performance systems that transform complex technical challenges into simple, efficient solutions for both users and business operations.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="header-right">
-                    <div class="button-group">
-                        <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener" class="action-button">LinkedIn</a>
-                        <a href="mailto:jdudgeon1993@gmail.com" class="action-button">Email Me</a>
-                    </div>
-                </div>
+            <h1>Jordan Dudgeon</h1>
+            
+            <div class="statement-purpose">
+                <h2>Designing Seamless Experiences.<br>Transforming Complexity.</h2> 
+                <p class="profile-summary">
+                    My focus is building intuitive, high-performance systems that transform complex technical challenges into simple, efficient solutions for both users and business operations.
+                </p>
             </div>
-            </header>
+            
+            <div class="button-group">
+                <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener" class="action-button">LinkedIn</a>
+                <a href="mailto:jdudgeon1993@gmail.com" class="action-button">Email Me</a>
+            </div>
+        </header>
 
         <div class="ornamental-divider"></div>
         
@@ -895,8 +871,8 @@
                 body.setAttribute('data-theme', storedTheme);
                 themeSwitcher.value = storedTheme;
             } else {
-                // Default to the new 'split-screen' theme
-                const defaultTheme = 'split-screen';
+                // Default back to 'journal' theme
+                const defaultTheme = 'journal';
                 body.setAttribute('data-theme', defaultTheme);
                 themeSwitcher.value = defaultTheme;
             }
