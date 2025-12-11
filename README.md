@@ -3,943 +3,1296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jordan Dudgeon - Full-stack developer specializing in intuitive UI/UX, system integration, and high-performance web applications.">
-    <meta name="author" content="Jordan Dudgeon">
-    <meta name="keywords" content="web developer, UI/UX, system integration, portfolio, Denver developer">
+    <meta name="description" content="Jordan Dudgeon - Developer & System Architect. Transforming complexity into elegant technical solutions.">
+    <title>JORDAN.DUDGEON_v2.5.1 // SYSTEM ONLINE</title>
     
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Jordan Dudgeon - Portfolio">
-    <meta property="og:description" content="Designing seamless experiences. Transforming complexity into elegant solutions.">
-    <meta property="og:type" content="website">
-    
-    <!-- Preconnect to fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <title>Jordan Dudgeon – Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* =====================================================
-           CSS CUSTOM PROPERTIES & THEME SYSTEM
-           ===================================================== */
-        :root {
-            /* Typography */
-            --font-display: 'Space Mono', monospace;
-            --font-body: 'Crimson Pro', Georgia, serif;
-            
-            /* Spacing & Layout */
-            --container-width: 800px;
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2.5rem;
-            --spacing-xl: 4rem;
-            
-            /* Timing */
-            --transition-fast: 150ms;
-            --transition-base: 250ms;
-            --transition-slow: 400ms;
-            
-            /* Borders & Shadows */
-            --radius-sm: 3px;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        /* =====================================================
-           THEME VARIATIONS
-           ===================================================== */
+        /* ============================================
+           TERMINAL HACKER AESTHETIC
+           ============================================ */
         
-        /* Classic Journal (Default Light) */
-        body[data-theme='journal'] {
-            --bg-primary: #fcf8e8;
-            --bg-secondary: #ffffff;
-            --text-primary: #2d2416;
-            --text-secondary: #5a4d3a;
-            --accent-primary: #c84545;
-            --accent-secondary: #3d5467;
-            --border-color: #e0d9c6;
-            --tag-bg: #f5f0e1;
+        :root {
+            /* Color Palette */
+            --terminal-bg: #0a0e0f;
+            --terminal-primary: #00ff41;
+            --terminal-secondary: #00d4ff;
+            --terminal-accent: #ff2a6d;
+            --terminal-warning: #ffd000;
+            --terminal-muted: #1a2f35;
+            --terminal-text: #c7f0d8;
+            --terminal-dim: #4a6f7a;
+            
+            /* Typography */
+            --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+            --font-display: 'Orbitron', monospace;
+            
+            /* Effects */
+            --glow-primary: 0 0 10px var(--terminal-primary),
+                            0 0 20px var(--terminal-primary),
+                            0 0 30px var(--terminal-primary);
+            --glow-accent: 0 0 10px var(--terminal-accent),
+                           0 0 20px var(--terminal-accent);
+            --scanline-opacity: 0.03;
         }
 
-        /* Deep Sea (Dark Cool) */
-        body[data-theme='deep-sea'] {
-            --bg-primary: #0f1419;
-            --bg-secondary: #1a2332;
-            --text-primary: #e0f7fa;
-            --text-secondary: #b0c4d4;
-            --accent-primary: #26a69a;
-            --accent-secondary: #ffb74d;
-            --border-color: #2a3f52;
-            --tag-bg: #1e2d3f;
-        }
-
-        /* Midnight Crimson (Dark Warm) */
-        body[data-theme='crimson'] {
-            --bg-primary: #0d0405;
-            --bg-secondary: #1a0808;
-            --text-primary: #fce4ec;
-            --text-secondary: #d4b4be;
-            --accent-primary: #e57373;
-            --accent-secondary: #ffd54f;
-            --border-color: #3a1515;
-            --tag-bg: #251010;
-        }
-
-        /* Minimal Blue (Light Professional) */
-        body[data-theme='minimal'] {
-            --bg-primary: #f8f9fa;
-            --bg-secondary: #ffffff;
-            --text-primary: #212529;
-            --text-secondary: #495057;
-            --accent-primary: #0066cc;
-            --accent-secondary: #004494;
-            --border-color: #dee2e6;
-            --tag-bg: #f1f3f5;
-        }
-
-        /* High Contrast (Accessibility) */
-        body[data-theme='contrast'] {
-            --bg-primary: #000000;
-            --bg-secondary: #0a0a0a;
-            --text-primary: #ffffff;
-            --text-secondary: #e0e0e0;
-            --accent-primary: #00ffff;
-            --accent-secondary: #ff00ff;
-            --border-color: #333333;
-            --tag-bg: #1a1a1a;
-        }
-
-        /* =====================================================
-           BASE STYLES & RESET
-           ===================================================== */
-        *, *::before, *::after {
-            box-sizing: border-box;
+        * {
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: var(--font-body);
-            font-size: 1.125rem;
-            line-height: 1.7;
-            color: var(--text-primary);
-            background-color: var(--bg-primary);
-            transition: background-color var(--transition-slow), 
-                        color var(--transition-slow);
-            padding-bottom: 80px;
-        }
-
-        ::selection {
-            background: var(--accent-primary);
-            color: var(--bg-primary);
-        }
-
-        /* Skip to main content link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-primary);
-            color: var(--bg-primary);
-            padding: 8px 16px;
-            text-decoration: none;
-            font-weight: 700;
-            z-index: 100;
-        }
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* =====================================================
-           LAYOUT
-           ===================================================== */
-        .container {
-            width: min(90%, var(--container-width));
-            margin: 0 auto;
-            padding: var(--spacing-lg) 0;
-        }
-
-        /* =====================================================
-           TYPOGRAPHY
-           ===================================================== */
-        h1, h2, h3, h4 {
-            font-family: var(--font-display);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            color: var(--accent-primary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        h2 {
-            font-size: clamp(1rem, 3vw, 1.25rem);
-            color: var(--accent-secondary);
-            font-weight: 400;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            color: var(--accent-secondary);
-            margin-bottom: var(--spacing-md);
-        }
-
-        h4 {
-            font-size: 1.25rem;
-            color: var(--accent-primary);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        p {
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-secondary);
-        }
-
-        /* =====================================================
-           COMPONENTS
-           ===================================================== */
-        
-        /* Links */
-        a {
-            color: var(--accent-primary);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color var(--transition-fast);
-        }
-        a:hover, a:focus {
-            border-bottom-color: var(--accent-primary);
-        }
-        a:focus {
-            outline: 2px solid var(--accent-primary);
-            outline-offset: 3px;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            font-family: var(--font-display);
-            font-size: 0.875rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--bg-primary);
-            background: var(--accent-secondary);
-            border: none;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: transform var(--transition-fast),
-                        box-shadow var(--transition-fast);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .btn:hover, .btn:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border-bottom-color: transparent;
-        }
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        /* Cards */
-        .card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            padding: var(--spacing-lg);
-            box-shadow: var(--shadow-sm);
-            transition: border-color var(--transition-base);
-        }
-
-        /* Divider */
-        .divider {
-            height: 1px;
-            background: linear-gradient(
-                to right,
-                transparent,
-                var(--border-color) 20%,
-                var(--border-color) 80%,
-                transparent
-            );
-            margin: var(--spacing-xl) 0;
-            border: none;
-        }
-
-        /* Tags */
-        .tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            background: var(--tag-bg);
-            color: var(--text-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            margin: 0.25rem 0.25rem 0.25rem 0;
-        }
-        .tag.active {
-            background: var(--accent-primary);
-            color: var(--bg-primary);
-            border-color: var(--accent-primary);
-        }
-
-        /* =====================================================
-           HEADER
-           ===================================================== */
-        header {
-            text-align: center;
-            padding: var(--spacing-xl) 0 var(--spacing-lg);
-            border-bottom: 2px solid var(--accent-primary);
+            font-family: var(--font-mono);
+            background: var(--terminal-bg);
+            color: var(--terminal-text);
+            line-height: 1.6;
+            overflow-x: hidden;
             position: relative;
         }
 
-        .hero-statement {
-            max-width: 650px;
-            margin: var(--spacing-lg) auto;
-            padding: var(--spacing-lg);
-            background: var(--bg-secondary);
-            border: 2px solid var(--accent-primary);
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-md);
+        /* ============================================
+           CRT MONITOR EFFECTS
+           ============================================ */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 9999;
+            opacity: var(--scanline-opacity);
+            animation: scanlines 10s linear infinite;
         }
 
-        .hero-statement h2 {
-            margin-bottom: var(--spacing-sm);
+        @keyframes scanlines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
         }
 
-        .hero-statement p {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            line-height: 1.6;
+        /* Animated background grid */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: 0;
         }
 
-        .cta-group {
-            display: flex;
-            gap: var(--spacing-sm);
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: var(--spacing-lg);
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
-        /* Theme Switcher */
-        .theme-switcher {
+        /* Floating code snippets background */
+        .code-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .code-rain span {
             position: absolute;
-            top: var(--spacing-sm);
-            right: var(--spacing-sm);
+            top: -100%;
+            font-size: 12px;
+            color: var(--terminal-primary);
+            animation: fall linear infinite;
+            font-family: var(--font-mono);
+            text-shadow: 0 0 5px var(--terminal-primary);
+        }
+
+        @keyframes fall {
+            to { top: 110%; }
+        }
+
+        /* ============================================
+           BOOT SEQUENCE OVERLAY
+           ============================================ */
+        .boot-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--terminal-bg);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem 10%;
+            animation: fadeOut 0.5s ease-out 3s forwards;
+        }
+
+        .boot-line {
+            font-size: 0.9rem;
+            color: var(--terminal-primary);
+            margin: 0.2rem 0;
+            opacity: 0;
+            animation: bootText 0.1s ease-in forwards;
+        }
+
+        .boot-line.error {
+            color: var(--terminal-accent);
+        }
+
+        .boot-line.warning {
+            color: var(--terminal-warning);
+        }
+
+        .boot-line:nth-child(1) { animation-delay: 0.1s; }
+        .boot-line:nth-child(2) { animation-delay: 0.3s; }
+        .boot-line:nth-child(3) { animation-delay: 0.5s; }
+        .boot-line:nth-child(4) { animation-delay: 0.8s; }
+        .boot-line:nth-child(5) { animation-delay: 1.2s; }
+        .boot-line:nth-child(6) { animation-delay: 1.5s; }
+        .boot-line:nth-child(7) { animation-delay: 1.8s; }
+        .boot-line:nth-child(8) { animation-delay: 2.2s; }
+
+        @keyframes bootText {
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            to { 
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* ============================================
+           MAIN CONTENT CONTAINER
+           ============================================ */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            animation: contentFadeIn 1s ease-out 3s forwards;
+        }
+
+        @keyframes contentFadeIn {
+            to { opacity: 1; }
+        }
+
+        /* ============================================
+           HEADER / TERMINAL WINDOW
+           ============================================ */
+        .terminal-window {
+            background: rgba(10, 14, 15, 0.95);
+            border: 2px solid var(--terminal-primary);
+            border-radius: 8px;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 65, 0.3),
+                inset 0 0 60px rgba(0, 255, 65, 0.05);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            background: linear-gradient(180deg, #1a2f35 0%, #0f1a1d 100%);
+            padding: 0.8rem 1rem;
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
-            font-size: 0.875rem;
-            font-family: var(--font-display);
+            justify-content: space-between;
+            border-bottom: 1px solid var(--terminal-primary);
         }
 
-        .theme-switcher select {
-            padding: 0.5rem;
+        .terminal-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .terminal-button {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .terminal-button.close { background: #ff5f57; }
+        .terminal-button.minimize { background: #ffbd2e; }
+        .terminal-button.maximize { background: #28ca42; }
+
+        .terminal-title {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--terminal-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .terminal-body {
+            padding: 2rem;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            margin-bottom: 3rem;
+        }
+
+        .glitch-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        h1 {
             font-family: var(--font-display);
-            font-size: 0.75rem;
-            color: var(--text-primary);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            color: var(--terminal-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            text-shadow: var(--glow-primary);
+            position: relative;
+            animation: glitchFlicker 3s infinite alternate;
+        }
+
+        @keyframes glitchFlicker {
+            0%, 100% { opacity: 1; }
+            92% { opacity: 0.98; }
+            93% { opacity: 0.95; }
+            95% { opacity: 1; }
+        }
+
+        .glitch-wrapper::before,
+        .glitch-wrapper::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .glitch-wrapper::before {
+            color: var(--terminal-accent);
+            animation: glitch1 2.5s infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+        }
+
+        .glitch-wrapper::after {
+            color: var(--terminal-secondary);
+            animation: glitch2 2.5s infinite;
+            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitch1 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes glitch2 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(2px, -2px); }
+            40% { transform: translate(2px, 2px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(-2px, 2px); }
+        }
+
+        .status-line {
+            font-size: 1rem;
+            color: var(--terminal-secondary);
+            margin: 0.5rem 0;
+            font-weight: 500;
+        }
+
+        .status-line::before {
+            content: '> ';
+            color: var(--terminal-primary);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+        }
+
+        .typing-text {
+            font-size: 1.1rem;
+            color: var(--terminal-text);
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            border-left: 3px solid var(--terminal-accent);
+            padding-left: 1.5rem;
+        }
+
+        /* ============================================
+           ACTION BUTTONS / LINKS
+           ============================================ */
+        .action-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.8rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            background: transparent;
+            color: var(--terminal-primary);
+            border: 2px solid var(--terminal-primary);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
-        /* =====================================================
-           SECTIONS
-           ===================================================== */
-        section {
-            margin-bottom: var(--spacing-xl);
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--terminal-primary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--terminal-bg);
+            box-shadow: 0 0 20px var(--terminal-primary);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn.secondary {
+            border-color: var(--terminal-accent);
+            color: var(--terminal-accent);
+        }
+
+        .btn.secondary::before {
+            background: var(--terminal-accent);
+        }
+
+        .btn.secondary:hover {
+            box-shadow: 0 0 20px var(--terminal-accent);
+        }
+
+        /* ============================================
+           SYSTEM STATS / METRICS
+           ============================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid var(--terminal-primary);
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--terminal-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(0, 255, 65, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.2);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--terminal-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--terminal-primary);
+            font-family: var(--font-display);
+        }
+
+        .stat-unit {
+            font-size: 0.9rem;
+            color: var(--terminal-secondary);
+            margin-left: 0.3rem;
+        }
+
+        /* ============================================
+           WORKFLOW SECTION
+           ============================================ */
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--terminal-secondary);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                var(--terminal-secondary) 0%, 
+                transparent 100%);
         }
 
         .workflow-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
-        .workflow-step {
-            padding-left: var(--spacing-md);
-            border-left: 3px solid var(--accent-primary);
+        .workflow-card {
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 4px solid var(--terminal-secondary);
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
         }
 
-        .workflow-step strong {
-            display: block;
+        .workflow-card:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateX(10px);
+            box-shadow: -5px 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .workflow-number {
             font-family: var(--font-display);
-            color: var(--accent-primary);
-            font-size: 0.9rem;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .workflow-step p {
-            font-size: 0.95rem;
-        }
-
-        /* Project Filter */
-        .filter-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-xs);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .filter-container label {
-            cursor: pointer;
-            transition: transform var(--transition-fast);
-        }
-        .filter-container label:hover {
-            transform: scale(1.05);
-        }
-
-        .filter-input {
-            display: none;
-        }
-
-        /* Project Items */
-        .project-item {
-            display: none;
-            padding: var(--spacing-lg) 0;
-            border-bottom: 1px dashed var(--border-color);
-            transition: padding-left var(--transition-base);
-        }
-        .project-item:last-child {
-            border-bottom: none;
-        }
-        .project-item.show {
-            display: block;
-        }
-        .project-item:hover {
-            padding-left: var(--spacing-md);
-            border-left: 3px solid var(--accent-primary);
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: var(--spacing-sm) 0;
-        }
-
-        .project-tag {
-            background: var(--accent-secondary);
-            color: var(--bg-primary);
-            padding: 0.25rem 0.625rem;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: var(--radius-sm);
-        }
-
-        .project-links {
-            margin-top: var(--spacing-sm);
-        }
-        .project-links a {
-            font-weight: 600;
-            margin-right: var(--spacing-md);
-        }
-
-        /* =====================================================
-           METRICS TOGGLE
-           ===================================================== */
-        .metrics-container {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            z-index: 100;
-        }
-
-        .metrics-toggle {
-            display: none;
-        }
-
-        .metrics-btn {
-            padding: 0.75rem 1rem;
-            font-family: var(--font-display);
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            background: var(--accent-primary);
-            color: var(--bg-primary);
-            border: none;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            box-shadow: var(--shadow-md);
-            transition: transform var(--transition-fast);
-        }
-        .metrics-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .metrics-panel {
-            display: none;
+            font-size: 3rem;
+            color: var(--terminal-secondary);
+            opacity: 0.2;
             position: absolute;
-            bottom: calc(100% + 10px);
-            right: 0;
-            padding: var(--spacing-md);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-md);
-            min-width: 200px;
+            top: 0.5rem;
+            right: 0.5rem;
         }
 
-        .metrics-toggle:checked ~ .metrics-panel {
-            display: block;
-            animation: slideUp 0.3s ease-out;
+        .workflow-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--terminal-secondary);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
+        .workflow-desc {
+            font-size: 0.95rem;
+            color: var(--terminal-text);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           PROJECTS SECTION
+           ============================================ */
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--terminal-muted);
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            background: transparent;
+            color: var(--terminal-dim);
+            border: 1px solid var(--terminal-dim);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--terminal-primary);
+            color: var(--terminal-bg);
+            border-color: var(--terminal-primary);
+            box-shadow: 0 0 15px var(--terminal-primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--terminal-muted);
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: projectSlideIn 0.5s ease-out forwards;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes projectSlideIn {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .metric-badge {
-            display: block;
-            padding: 0.5rem 0.75rem;
-            margin: 0.25rem 0;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-align: center;
-            color: white;
-            border-radius: var(--radius-sm);
-        }
-        .metric-badge.green { background: #00c853; }
-        .metric-badge.yellow { background: #ffab00; }
-
-        /* =====================================================
-           FOOTER
-           ===================================================== */
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: var(--spacing-md) 0;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            font-size: 0.875rem;
-            z-index: 50;
+        .project-card.hidden {
+            display: none;
         }
 
-        footer p {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
+        .project-card:hover {
+            border-color: var(--terminal-accent);
+            box-shadow: 0 10px 40px rgba(255, 42, 109, 0.2);
+            transform: scale(1.02);
         }
 
-        .footer-links {
+        .project-header {
             display: flex;
-            justify-content: center;
-            gap: var(--spacing-md);
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
         }
 
-        /* =====================================================
-           RESPONSIVE DESIGN
-           ===================================================== */
+        .project-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--terminal-accent);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-status {
+            font-size: 0.7rem;
+            padding: 0.3rem 0.8rem;
+            background: var(--terminal-primary);
+            color: var(--terminal-bg);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .project-status.wip {
+            background: var(--terminal-warning);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .project-tag {
+            font-size: 0.7rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--terminal-secondary);
+            border: 1px solid var(--terminal-secondary);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .project-desc {
+            color: var(--terminal-text);
+            line-height: 1.8;
+            margin: 1rem 0;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--terminal-primary);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .project-link:hover {
+            color: var(--terminal-accent);
+            text-shadow: 0 0 10px var(--terminal-accent);
+            transform: translateX(5px);
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .contact-card {
+            background: rgba(255, 42, 109, 0.05);
+            border: 1px solid var(--terminal-accent);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 42, 109, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 42, 109, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            color: var(--terminal-dim);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            color: var(--terminal-accent);
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--terminal-muted);
+            text-align: center;
+            color: var(--terminal-dim);
+            font-size: 0.85rem;
+        }
+
+        .footer-ascii {
+            font-size: 0.6rem;
+            color: var(--terminal-primary);
+            opacity: 0.3;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
         @media (max-width: 768px) {
-            body {
-                font-size: 1rem;
-                padding-bottom: 60px;
-            }
-
             .container {
-                padding: var(--spacing-md) 0;
+                padding: 1rem;
             }
 
-            header {
-                padding: var(--spacing-lg) 0;
+            h1 {
+                font-size: 2rem;
             }
 
-            .theme-switcher {
-                position: static;
-                justify-content: center;
-                margin-bottom: var(--spacing-md);
+            .terminal-body {
+                padding: 1.5rem;
             }
 
-            .hero-statement {
-                padding: var(--spacing-md);
+            .stats-grid,
+            .workflow-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
 
-            .cta-group {
+            .action-bar {
                 flex-direction: column;
-                align-items: stretch;
             }
 
             .btn {
                 width: 100%;
-                text-align: center;
-            }
-
-            .workflow-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-md);
-            }
-
-            .filter-container {
                 justify-content: center;
             }
 
-            .metrics-container {
-                position: static;
-                margin: var(--spacing-lg) auto;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: var(--spacing-sm);
+            .filter-bar {
+                justify-content: center;
             }
 
-            .metrics-panel {
-                position: static;
-                width: 100%;
-                max-width: 300px;
-            }
-
-            footer {
-                position: static;
+            .boot-overlay {
+                padding: 1rem 5%;
+                font-size: 0.75rem;
             }
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                letter-spacing: 0.02em;
-            }
-
-            h2 {
-                letter-spacing: 0.04em;
-            }
-
-            .hero-statement p {
-                font-size: 1rem;
-            }
-
-            .filter-container {
-                gap: 0.25rem;
-            }
-
-            .tag {
-                font-size: 0.65rem;
-                padding: 0.25rem 0.5rem;
-            }
+        /* ============================================
+           CUSTOM CURSOR (OPTIONAL)
+           ============================================ */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--terminal-primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+            mix-blend-mode: difference;
         }
 
-        /* =====================================================
-           PRINT STYLES
-           ===================================================== */
-        @media print {
-            body {
-                background: white;
-                color: black;
-            }
-
-            header, footer, .metrics-container, .theme-switcher, .filter-container {
-                display: none;
-            }
-
-            .project-item {
-                display: block !important;
-                page-break-inside: avoid;
-            }
-
-            a {
-                text-decoration: underline;
-            }
+        .custom-cursor.hover {
+            transform: scale(1.5);
+            border-color: var(--terminal-accent);
         }
     </style>
 </head>
-<body data-theme="journal">
-    <!-- Skip to main content for screen readers -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+<body>
+    <!-- Boot Sequence Overlay -->
+    <div class="boot-overlay">
+        <div class="boot-line">INITIALIZING PORTFOLIO SYSTEM v2.5.1...</div>
+        <div class="boot-line">LOADING CORE MODULES........................[OK]</div>
+        <div class="boot-line">ESTABLISHING SECURE CONNECTION..............[OK]</div>
+        <div class="boot-line warning">WARNING: CREATIVITY LEVELS EXCEEDING NORMAL PARAMETERS</div>
+        <div class="boot-line">COMPILING PROJECT DATABASE..................[OK]</div>
+        <div class="boot-line">INITIALIZING UI COMPONENTS..................[OK]</div>
+        <div class="boot-line">AUTHENTICATING USER: GUEST..................[OK]</div>
+        <div class="boot-line">SYSTEM READY. WELCOME TO THE MATRIX.</div>
+    </div>
 
-    <main class="container" id="main-content">
-        <header>
-            <div class="theme-switcher">
-                <label for="theme-select">Theme:</label>
-                <select id="theme-select" aria-label="Choose color theme">
-                    <option value="journal">Classic Journal</option>
-                    <option value="deep-sea">Deep Sea</option>
-                    <option value="crimson">Midnight Crimson</option>
-                    <option value="minimal">Minimal Blue</option>
-                    <option value="contrast">High Contrast</option>
-                </select>
-            </div>
+    <!-- Animated Grid Background -->
+    <div class="grid-background"></div>
 
-            <h1>Jordan Dudgeon</h1>
+    <!-- Code Rain Effect -->
+    <div class="code-rain" id="codeRain"></div>
 
-            <div class="hero-statement">
-                <h2>Designing Seamless Experiences.<br>Transforming Complexity.</h2>
-                <p>
-                    Building intuitive, high-performance systems that transform complex technical 
-                    challenges into simple, efficient solutions for users and business operations.
-                </p>
-            </div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
 
-            <div class="cta-group">
-                <a href="https://www.linkedin.com/in/jordan-dudgeon" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="btn"
-                   aria-label="Visit Jordan's LinkedIn profile">
-                    LinkedIn
-                </a>
-                <a href="mailto:jdudgeon1993@gmail.com" 
-                   class="btn"
-                   aria-label="Send email to Jordan">
-                    Email Me
-                </a>
-            </div>
-        </header>
-
-        <hr class="divider" aria-hidden="true">
-
-        <section id="workflow" class="card">
-            <h3>Transforming Complexity: The Four-Phase Workflow</h3>
-            <p>
-                A structured approach to building intuitive, high-performance systems that scale effortlessly.
-            </p>
-
-            <div class="workflow-grid">
-                <div class="workflow-step">
-                    <strong>Phase 1: Analysis & Strategy 🧠</strong>
-                    <p>Define the problem, map complexity, and blueprint the core, intuitive solution.</p>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Terminal Window -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
                 </div>
-
-                <div class="workflow-step">
-                    <strong>Phase 2: System Development 💻</strong>
-                    <p>Build semantic, high-performance code with rigorous testing for efficiency.</p>
-                </div>
-
-                <div class="workflow-step">
-                    <strong>Phase 3: Scalable Deployment 📦</strong>
-                    <p>Optimize assets and deploy future-proof solutions with robust pipelines.</p>
-                </div>
-
-                <div class="workflow-step">
-                    <strong>Phase 4: Continuous Optimization 📈</strong>
-                    <p>Monitor performance and iterate quickly to maintain peak efficiency.</p>
-                </div>
+                <div class="terminal-title">jordan@dudgeon:~$ ./portfolio.sh --execute</div>
             </div>
-        </section>
-
-        <hr class="divider" aria-hidden="true">
-
-        <section id="projects" class="card">
-            <h3>Projects & Portfolio</h3>
-
-            <div class="filter-container" role="group" aria-label="Filter projects by category">
-                <input type="radio" 
-                       id="filter-all" 
-                       name="filter" 
-                       class="filter-input" 
-                       value="all" 
-                       checked>
-                <label for="filter-all" class="tag active">All Projects</label>
-
-                <input type="radio" 
-                       id="filter-webdev" 
-                       name="filter" 
-                       class="filter-input" 
-                       value="webdev">
-                <label for="filter-webdev" class="tag">Web Development</label>
-
-                <input type="radio" 
-                       id="filter-analysis" 
-                       name="filter" 
-                       class="filter-input" 
-                       value="analysis">
-                <label for="filter-analysis" class="tag">Analysis</label>
-
-                <input type="radio" 
-                       id="filter-integration" 
-                       name="filter" 
-                       class="filter-input" 
-                       value="integration">
-                <label for="filter-integration" class="tag">Integration</label>
-
-                <input type="radio" 
-                       id="filter-freelance" 
-                       name="filter" 
-                       class="filter-input" 
-                       value="freelance">
-                <label for="filter-freelance" class="tag">Client Work</label>
-            </div>
-
-            <div class="project-list">
-                <article class="project-item show" data-categories="webdev design">
-                    <h4>Dynamic Themed Portfolio</h4>
-                    <div class="project-tags">
-                        <span class="project-tag">HTML</span>
-                        <span class="project-tag">CSS</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">Design Systems</span>
+            <div class="terminal-body">
+                <div class="hero">
+                    <div class="glitch-wrapper" data-text="JORDAN DUDGEON">
+                        <h1>JORDAN DUDGEON</h1>
                     </div>
-                    <p>
-                        Live demonstration of scalability. Built with modular CSS themes and 
-                        zero-latency UX for future-proof design systems.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://jdudgeon1993.github.io/jdudgeon1993/" 
-                           target="_blank" 
-                           rel="noopener noreferrer">
-                            View Live →
+                    <div class="status-line">STATUS: TRANSFORMING COMPLEXITY</div>
+                    <div class="status-line">ROLE: DEVELOPER // SYSTEM ARCHITECT</div>
+                    
+                    <div class="typing-text">
+                        <strong>// MISSION STATEMENT</strong><br>
+                        Building intuitive, high-performance systems that transform complex technical 
+                        challenges into elegant solutions. Specializing in API integration, real-time data 
+                        visualization, and seamless user experiences that just work.
+                    </div>
+
+                    <div class="action-bar">
+                        <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener" class="btn">
+                            <span>📡</span> LINKEDIN
                         </a>
-                        <a href="https://github.com/jdudgeon1993/jdudgeon1993" 
-                           target="_blank" 
-                           rel="noopener noreferrer">
-                            Source Code →
+                        <a href="mailto:jdudgeon1993@gmail.com" class="btn secondary">
+                            <span>📨</span> INITIATE CONTACT
+                        </a>
+                        <a href="https://github.com/jdudgeon1993" target="_blank" rel="noopener" class="btn">
+                            <span>💾</span> GITHUB
                         </a>
                     </div>
-                </article>
+                </div>
 
-                <article class="project-item show" data-categories="webdev analysis integration freelance">
-                    <h4>Workflow Optimization & Client Website</h4>
-                    <div class="project-tags">
-                        <span class="project-tag">Business Analysis</span>
-                        <span class="project-tag">System Integration</span>
-                        <span class="project-tag">Freelance</span>
-                        <span class="project-tag">UI/UX</span>
+                <!-- System Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Lighthouse Score</div>
+                        <div class="stat-value">100<span class="stat-unit">/100</span></div>
                     </div>
-                    <p>
-                        Conducted deep workflow analysis to reduce friction, then delivered a 
-                        high-speed, minimalist website maximizing client lead conversion.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" 
-                           target="_blank" 
-                           rel="noopener noreferrer">
-                            Analysis Report →
-                        </a>
-                        <a href="https://jdudgeon1993.github.io/Project_HR_Portfolio/#" 
-                           target="_blank" 
-                           rel="noopener noreferrer">
-                            Website Demo →
-                        </a>
+                    <div class="stat-card">
+                        <div class="stat-label">Performance</div>
+                        <div class="stat-value">OPTIMAL</div>
                     </div>
-                </article>
-
-                <article class="project-item show" data-categories="development">
-                    <h4>Full-Stack Application</h4>
-                    <div class="project-tags">
-                        <span class="project-tag">In Development</span>
+                    <div class="stat-card">
+                        <div class="stat-label">APIs Integrated</div>
+                        <div class="stat-value">15<span class="stat-unit">+</span></div>
                     </div>
-                    <p>
-                        Currently building a solution demonstrating full-stack technical efficiency 
-                        and superior user workflow design.
-                    </p>
-                    <div class="project-links">
-                        <span style="color: var(--text-secondary);">Coming Soon</span>
+                    <div class="stat-card">
+                        <div class="stat-label">System Uptime</div>
+                        <div class="stat-value">99.9<span class="stat-unit">%</span></div>
                     </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Lighthouse Metrics Toggle -->
-        <div class="metrics-container">
-            <input type="checkbox" id="metrics-toggle" class="metrics-toggle">
-            <label for="metrics-toggle" class="metrics-btn">📊 Metrics</label>
-            <div class="metrics-panel">
-                <span class="metric-badge green">🚀 100 Performance</span>
-                <span class="metric-badge green">♿ 100 Accessibility</span>
-                <span class="metric-badge green">✅ 100 Best Practices</span>
-                <span class="metric-badge yellow">🔎 91 SEO</span>
+                </div>
             </div>
         </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 Jordan Dudgeon. All Rights Reserved.</p>
-        <nav class="footer-links" aria-label="Footer navigation">
-            <a href="https://www.linkedin.com/in/jordan-dudgeon" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                LinkedIn
-            </a>
-            <a href="mailto:jdudgeon1993@gmail.com">
-                jdudgeon1993@gmail.com
-            </a>
-        </nav>
-    </footer>
+        <!-- Workflow Section -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                </div>
+                <div class="terminal-title">workflow_system.log</div>
+            </div>
+            <div class="terminal-body">
+                <h2 class="section-title">// TRANSFORMATION PROTOCOL</h2>
+                <p style="color: var(--terminal-dim); margin-bottom: 2rem;">
+                    Four-phase methodology for converting chaos into clarity
+                </p>
+
+                <div class="workflow-grid">
+                    <div class="workflow-card">
+                        <div class="workflow-number">01</div>
+                        <div class="workflow-title">🧠 ANALYSIS & MAPPING</div>
+                        <div class="workflow-desc">
+                            Deep-dive into requirements. Map complexity. Identify bottlenecks. 
+                            Blueprint the optimal architecture before writing a single line.
+                        </div>
+                    </div>
+
+                    <div class="workflow-card">
+                        <div class="workflow-number">02</div>
+                        <div class="workflow-title">💻 DEVELOPMENT & TESTING</div>
+                        <div class="workflow-desc">
+                            Build semantic, maintainable code. Implement real-time features. 
+                            Conduct rigorous testing across devices and use cases.
+                        </div>
+                    </div>
+
+                    <div class="workflow-card">
+                        <div class="workflow-number">03</div>
+                        <div class="workflow-title">🚀 DEPLOYMENT & SCALING</div>
+                        <div class="workflow-desc">
+                            Optimize assets for speed. Deploy with CI/CD pipelines. 
+                            Ensure infrastructure scales effortlessly under load.
+                        </div>
+                    </div>
+
+                    <div class="workflow-card">
+                        <div class="workflow-number">04</div>
+                        <div class="workflow-title">📊 MONITOR & ITERATE</div>
+                        <div class="workflow-desc">
+                            Track performance metrics. Gather user feedback. 
+                            Continuously refine and optimize for peak efficiency.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                </div>
+                <div class="terminal-title">projects_database.db</div>
+            </div>
+            <div class="terminal-body">
+                <h2 class="section-title">// DEPLOYED SYSTEMS</h2>
+
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">ALL</button>
+                    <button class="filter-btn" data-filter="webdev">WEB DEV</button>
+                    <button class="filter-btn" data-filter="integration">INTEGRATION</button>
+                    <button class="filter-btn" data-filter="analysis">ANALYSIS</button>
+                    <button class="filter-btn" data-filter="realtime">REAL-TIME</button>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1: Commute Dashboard -->
+                    <div class="project-card" data-categories="webdev integration realtime">
+                        <div class="project-header">
+                            <div>
+                                <div class="project-title">REAL-TIME COMMUTE DASHBOARD</div>
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML/CSS/JS</span>
+                                    <span class="project-tag">API INTEGRATION</span>
+                                    <span class="project-tag">GTFS</span>
+                                    <span class="project-tag">REAL-TIME DATA</span>
+                                </div>
+                            </div>
+                            <span class="project-status">LIVE</span>
+                        </div>
+                        <div class="project-desc">
+                            Comprehensive single-page application integrating multiple live APIs 
+                            (OpenWeather, Google Routes, custom RTD GTFS server). Features dynamic 
+                            time-based modes, focus mode, color-coded transit alerts, and live countdown 
+                            timers. Built custom GTFS server hosted on Render for N Line train schedules.
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">VIEW DEMO →</a>
+                            <a href="#" class="project-link">SOURCE CODE →</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Portfolio -->
+                    <div class="project-card" data-categories="webdev">
+                        <div class="project-header">
+                            <div>
+                                <div class="project-title">TERMINAL PORTFOLIO v2.5</div>
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML/CSS</span>
+                                    <span class="project-tag">ANIMATIONS</span>
+                                    <span class="project-tag">UX DESIGN</span>
+                                </div>
+                            </div>
+                            <span class="project-status">LIVE</span>
+                        </div>
+                        <div class="project-desc">
+                            Cyberpunk-inspired portfolio with CRT scanlines, glitch effects, animated 
+                            boot sequences, and interactive elements. Built with vanilla HTML/CSS/JS 
+                            for maximum performance. Demonstrates creative frontend capabilities while 
+                            maintaining accessibility standards.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://jdudgeon1993.github.io/jdudgeon1993/" class="project-link">VIEW LIVE →</a>
+                            <a href="https://github.com/jdudgeon1993/jdudgeon1993" class="project-link">SOURCE CODE →</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Client Work -->
+                    <div class="project-card" data-categories="webdev analysis integration">
+                        <div class="project-header">
+                            <div>
+                                <div class="project-title">WORKFLOW OPTIMIZATION SYSTEM</div>
+                                <div class="project-tags">
+                                    <span class="project-tag">BUSINESS ANALYSIS</span>
+                                    <span class="project-tag">SYSTEM DESIGN</span>
+                                    <span class="project-tag">CLIENT WORK</span>
+                                </div>
+                            </div>
+                            <span class="project-status">DEPLOYED</span>
+                        </div>
+                        <div class="project-desc">
+                            Deep workflow analysis to reduce departmental friction. Delivered 
+                            high-speed, minimalist website maximizing client lead conversion. 
+                            Comprehensive documentation and strategic recommendations implemented.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/jdudgeon1993/Projects/blob/28454ac426544536ed555853b532563bf96f52a3/Heathers%20Project" class="project-link">ANALYSIS REPORT →</a>
+                            <a href="https://jdudgeon1993.github.io/Project_HR_Portfolio/#" class="project-link">WEBSITE DEMO →</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: In Development -->
+                    <div class="project-card" data-categories="webdev integration">
+                        <div class="project-header">
+                            <div>
+                                <div class="project-title">CLASSIFIED PROJECT_ALPHA</div>
+                                <div class="project-tags">
+                                    <span class="project-tag">FULL-STACK</span>
+                                    <span class="project-tag">DATABASE</span>
+                                    <span class="project-tag">REST API</span>
+                                </div>
+                            </div>
+                            <span class="project-status wip">IN DEV</span>
+                        </div>
+                        <div class="project-desc">
+                            Full-stack application demonstrating technical efficiency and superior 
+                            workflow design. Features include real-time data synchronization, 
+                            advanced state management, and optimized database queries.
+                        </div>
+                        <div class="project-links">
+                            <span style="color: var(--terminal-dim);">// COMING_SOON.exe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                </div>
+                <div class="terminal-title">contact_channels.cfg</div>
+            </div>
+            <div class="terminal-body">
+                <h2 class="section-title">// INITIATE CONNECTION</h2>
+                <p style="color: var(--terminal-dim); margin-bottom: 2rem;">
+                    Multiple communication protocols available
+                </p>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-label">Email Protocol</div>
+                        <a href="mailto:jdudgeon1993@gmail.com" class="contact-value">
+                            jdudgeon1993@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">🔗</div>
+                        <div class="contact-label">LinkedIn Network</div>
+                        <a href="https://www.linkedin.com/in/jordan-dudgeon" target="_blank" rel="noopener" class="contact-value">
+                            /jordan-dudgeon
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">💾</div>
+                        <div class="contact-label">GitHub Repository</div>
+                        <a href="https://github.com/jdudgeon1993" target="_blank" rel="noopener" class="contact-value">
+                            /jdudgeon1993
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-label">Location</div>
+                        <div class="contact-value">Denver Metro, CO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <pre class="footer-ascii">
+ ██╗ ██████╗ ██████╗ ██████╗  █████╗ ███╗   ██╗
+ ██║██╔═══██╗██╔══██╗██╔══██╗██╔══██╗████╗  ██║
+ ██║██║   ██║██████╔╝██║  ██║███████║██╔██╗ ██║
+██╔╝██║   ██║██╔══██╗██║  ██║██╔══██║██║╚██╗██║
+██║ ╚██████╔╝██║  ██║██████╔╝██║  ██║██║ ╚████║
+╚═╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝
+            </pre>
+            <p>&copy; 2025 JORDAN DUDGEON // ALL SYSTEMS OPERATIONAL</p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem;">
+                BUILT WITH: HTML + CSS + JS // NO FRAMEWORKS // MAXIMUM PERFORMANCE
+            </p>
+        </footer>
+    </div>
 
     <script>
-        // Theme Management
-        const themeSelect = document.getElementById('theme-select');
-        const body = document.body;
-        const THEME_KEY = 'portfolio-theme';
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem(THEME_KEY) || 'journal';
-        body.setAttribute('data-theme', savedTheme);
-        themeSelect.value = savedTheme;
-
-        // Handle theme changes
-        themeSelect.addEventListener('change', (e) => {
-            const newTheme = e.target.value;
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem(THEME_KEY, newTheme);
-        });
-
-        // Project Filtering
-        const filterInputs = document.querySelectorAll('.filter-input');
-        const projectItems = document.querySelectorAll('.project-item');
-        const filterLabels = document.querySelectorAll('.filter-container label');
-
-        function filterProjects(category) {
-            projectItems.forEach(item => {
-                if (category === 'all') {
-                    item.classList.add('show');
-                } else {
-                    const categories = item.dataset.categories.split(' ');
-                    if (categories.includes(category)) {
-                        item.classList.add('show');
-                    } else {
-                        item.classList.remove('show');
-                    }
-                }
-            });
-
-            // Update active tag styling
-            filterLabels.forEach(label => {
-                label.classList.remove('active');
-            });
-            document.querySelector(`label[for="${category === 'all' ? 'filter-all' : 'filter-' + category}"]`).classList.add('active');
+        // ============================================
+        // CODE RAIN EFFECT
+        // ============================================
+        const codeRain = document.getElementById('codeRain');
+        const codeChars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        
+        function createRainDrop() {
+            const span = document.createElement('span');
+            const char = codeChars[Math.floor(Math.random() * codeChars.length)];
+            span.textContent = char;
+            span.style.left = Math.random() * 100 + '%';
+            span.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            span.style.animationDelay = Math.random() * 2 + 's';
+            codeRain.appendChild(span);
+            
+            setTimeout(() => span.remove(), 5000);
         }
 
-        filterInputs.forEach(input => {
-            input.addEventListener('change', (e) => {
-                filterProjects(e.target.value);
+        // Create initial raindrops
+        for (let i = 0; i < 30; i++) {
+            setTimeout(createRainDrop, Math.random() * 2000);
+        }
+
+        // Continuously create new raindrops
+        setInterval(createRainDrop, 300);
+
+        // ============================================
+        // CUSTOM CURSOR
+        // ============================================
+        const cursor = document.getElementById('customCursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            const speed = 0.2;
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+            
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor hover effect
+        document.querySelectorAll('a, button, .project-card, .stat-card, .workflow-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // ============================================
+        // PROJECT FILTERING
+        // ============================================
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.classList.remove('hidden');
+                    } else {
+                        const categories = card.dataset.categories.split(' ');
+                        if (categories.includes(filter)) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
             });
         });
 
-        // Add keyboard navigation for filter tags
-        filterLabels.forEach(label => {
-            label.setAttribute('tabindex', '0');
-            label.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    label.click();
+        // ============================================
+        // THEME PERSISTENCE
+        // ============================================
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        if (savedTheme) {
+            document.body.setAttribute('data-theme', savedTheme);
+        }
+
+        // ============================================
+        // SMOOTH SCROLL
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
+        });
+
+        // ============================================
+        // KONAMI CODE EASTER EGG
+        // ============================================
+        let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    activateMatrixMode();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        function activateMatrixMode() {
+            document.body.style.animation = 'glitchFlicker 0.1s infinite';
+            setTimeout(() => {
+                document.body.style.animation = '';
+                alert('🎮 CHEAT CODE ACTIVATED // SYSTEM OVERCLOCKED TO 200%');
+            }, 2000);
+        }
+
+        // ============================================
+        // PERFORMANCE MONITORING
+        // ============================================
+        window.addEventListener('load', () => {
+            if (window.performance) {
+                const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+                console.log(`%c⚡ PAGE LOADED IN ${loadTime}ms`, 'color: #00ff41; font-size: 16px; font-weight: bold;');
+                console.log('%c🚀 SYSTEM PERFORMANCE: OPTIMAL', 'color: #00d4ff; font-size: 14px;');
+                console.log('%c💾 REPOSITORY: https://github.com/jdudgeon1993', 'color: #ff2a6d; font-size: 14px;');
+            }
         });
     </script>
 </body>
